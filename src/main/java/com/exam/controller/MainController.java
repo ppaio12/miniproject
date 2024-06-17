@@ -10,6 +10,7 @@ public class MainController {
 
     Logger logger = LoggerFactory.getLogger(getClass());
 
+    // 원복2
     @GetMapping("/main")
     public String main() {
         return "main";
