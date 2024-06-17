@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.UserMapper">
+
+    <!-- idCheck -->
+    <select id="idCheck" parameterType="string" resultType="UserDTO">
+        select * from user where user_id = #{user_id}
+    </select>
+
+    <!-- signup -->
+    <insert id="addUser" parameterType="UserDTO">
+        insert into user (user_id, user_pw, user_name, user_birth, user_post, user_addr1, user_addr2, user_phone, user_email)
+        values (#{user_id}, #{user_pw}, #{user_name}, #{user_birth}, #{user_post}, #{user_addr1}, #{user_addr2}, #{user_phone}, #{user_email});
+    </insert>
+
+    <!-- login -->
+    <select id="login" parameterType="Hashmap" resultType="UserDTO">
+        select * from user where user_id=#{user_id} and user_pw=#{user_pw}
+    </select>
+
+    <select id="findById" parameterType="string" resultType="UserDTO">
+        select * from user where user_id=#{user_id}
+    </select>
+
+<!--    &lt;!&ndash; myPage &ndash;&gt;-->
+<!--    <select id="myPage" parameterType="string" resultType="MemberDTO">-->
+<!--        select * from member where userid = #{userid}-->
+<!--    </select>-->
+
+
+</mapper>
+
+
