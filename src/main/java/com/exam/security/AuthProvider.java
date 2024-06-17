@@ -25,20 +25,19 @@ public class AuthProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 
-        String userid = (String)authentication.getPrincipal(); // name="userid" 값
-        String passwd = (String)authentication.getCredentials(); // name="passwd" 값
+        String userid = (String)authentication.getPrincipal();
+        String userpw = (String)authentication.getCredentials();
 
         UserDTO user = userService.findById(userid);
 
         // success login
         UsernamePasswordAuthenticationToken token = null;
-        if (user != null && new BCryptPasswordEncoder().matches(passwd, user.getUser_pw())) {
+        if (user != null && new BCryptPasswordEncoder().matches(userpw, user.getUser_pw())) {
 
             List<GrantedAuthority> list = new ArrayList<>();
             list.add(new SimpleGrantedAuthority("USER")); // ADMIN
 
-            //암호화된 비번대신에 raw 비번으로 설정
-            user.setUser_pw(passwd);
+            user.setUser_pw(userpw);
             token = new UsernamePasswordAuthenticationToken(user, null, list);
             return token;
         }

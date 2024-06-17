@@ -14,7 +14,5 @@ public class MainController {
     public String main() {
         return "main";
     }
-    // 작업1 완료
-    // 작업2 완료
 
 }

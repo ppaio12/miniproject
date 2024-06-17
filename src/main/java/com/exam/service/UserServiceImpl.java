@@ -25,10 +25,6 @@ public class UserServiceImpl implements UserService{
         return userMapper.addUser(user);
     }
 
-    @Override
-    public UserDTO login(Map<String, String> map) {
-        return userMapper.login(map);
-    }
 
     @Override
     public UserDTO findById(String userid) {

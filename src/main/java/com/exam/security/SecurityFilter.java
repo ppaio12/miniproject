@@ -12,20 +12,24 @@ public class SecurityFilter {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         // 인증 제외할 맵핑값
-        http.authorizeRequests().
-                antMatchers("/login", "/home","/signup", "/webjars/**").
-                permitAll().
-                anyRequest().
-                authenticated();
+        http.csrf().disable()
+                .authorizeRequests()
+                .antMatchers("/login", "/main","/signup", "/idCheck", "/webjars/**")
+                .permitAll()
+                .anyRequest()
+                .authenticated();
 
-        http.csrf().disable();
         http.formLogin()
                 .loginPage("/login")
-                .loginProcessingUrl("/auth").usernameParameter("userid")
-                .passwordParameter("passwd").failureForwardUrl("/login_fail")
+                .loginProcessingUrl("/auth")
+                .usernameParameter("user_id")
+                .passwordParameter("user_pw")
+                .failureForwardUrl("/login_fail")
                 .defaultSuccessUrl("/login_success", true);
 
-        http.logout().logoutUrl("/logout").logoutSuccessUrl("/home");
+        http.logout()
+                .logoutUrl("/logout")
+                .logoutSuccessUrl("/main");
 
         return http.build();
     }

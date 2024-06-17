@@ -28,7 +28,7 @@
 </head>
 <body>
 <div class="App">
-    <jsp:include page="common/top.jsp" flush="true" /><br>
+    <jsp:include page="common/header.jsp" flush="true" /><br>
     <jsp:include page="common/menu.jsp" flush="true" />
     <hr>
 </div>

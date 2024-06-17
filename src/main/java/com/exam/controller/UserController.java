@@ -4,6 +4,9 @@ import com.exam.dto.UserDTO;
 import com.exam.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -39,39 +42,39 @@ public class UserController {
         return mesg;
     }
 
-    // 회원가입 폼
+    // 회원가입
     @GetMapping("/signup")
-    public String singupForm(ModelMap modelMap) {
-        UserDTO dto = new UserDTO();
-
-        modelMap.addAttribute("UserDTO", dto);
+    public String singupForm(ModelMap model) {
+        model.put("UserDTO", new UserDTO());
 
         return "signupForm";
     }
-    
+
     // 회원가입 POST요청
     @PostMapping("/signup")
     public String signup(@Valid UserDTO userDTO, BindingResult result) {
-        System.out.println(userDTO.toString());
+        if (result.hasErrors()) {
+            return "signupForm";
+        }
+        // 비밀번호 암호화
+        String criptPw = new BCryptPasswordEncoder().encode(userDTO.getUser_pw());
+        userDTO.setUser_pw(criptPw);
 
-//        if (result.hasErrors()) {
-//            return "signupForm";
-//        }
-
-        logger.info("signup:{}", userDTO);
         int n = userService.addUser(userDTO);
 
         return "redirect:main";
     }
-//
+
+    // 마이페이지
 //    @GetMapping("/myPage")
 //    public String myPage(ModelMap model) {
 //        UserDTO dto = (UserDTO) model.getAttribute("login");
 //
 //        String userid = dto.getUser_id();
 //
-//        UserDTO searchDTO = userService.myPage(userid);
-//        model.addAttribute("login", searchDTO);
+//        UserDTO mypageDTO = userService.myPage(userid);
+//        model.addAttribute("login", mypageDTO);
+//
 //
 //        return "myPage";
 //    }
