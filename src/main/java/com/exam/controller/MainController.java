@@ -14,6 +14,5 @@ public class MainController {
     public String main() {
         return "main";
     }
-    // 12:56 jw 브랜치 테스트
 
 }
