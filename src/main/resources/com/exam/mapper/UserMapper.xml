@@ -17,8 +17,18 @@
     </insert>
 
     <select id="findById" parameterType="string" resultType="UserDTO">
-        select * from user where user_id=#{user_id}
+        select * from user where user_id = #{user_id}
     </select>
+
+    <update id="updateUser" parameterType="string">
+        update user set
+        user_pw = #{user_pw},
+        user_post = #{user_post},
+        user_addr1 = #{user_addr1}, user_addr2 = #{user_addr2},
+        user_phone = #{user_phone},
+        user_email = #{user_email}
+        where user_id = #{user_id}
+    </update>
 
 
 

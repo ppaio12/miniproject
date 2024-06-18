@@ -9,11 +9,11 @@
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="home">Home</a>
+                            <a class="nav-link" href="main">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="Todos">Todos</a>
-                        </li>
+<%--                        <li class="nav-item">--%>
+<%--                            <a class="nav-link" href="Todos">Todos</a>--%>
+<%--                        </li>--%>
                     </ul>
                 </div>
                 <ul class="navbar-nav">
@@ -34,7 +34,7 @@
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item">
-                            <a class="nav-link" href="mypage">mypage</a>
+                            <a class="nav-link" href="myPage">mypage</a>
                         </li>
                     </sec:authorize>
 

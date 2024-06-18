@@ -21,8 +21,8 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public int addUser(UserDTO user) {
-        return userMapper.addUser(user);
+    public int addUser(UserDTO dto) {
+        return userMapper.addUser(dto);
     }
 
 
@@ -30,4 +30,16 @@ public class UserServiceImpl implements UserService{
     public UserDTO findById(String userid) {
         return userMapper.findById(userid);
     }
+
+    @Override
+    public UserDTO myPage(String user_id) {
+        return userMapper.myPage(user_id);
+    }
+
+    @Override
+    public int updateUser(UserDTO dto) {
+        return userMapper.updateUser(dto);
+    }
+
+
 }

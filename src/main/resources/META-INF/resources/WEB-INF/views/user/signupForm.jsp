@@ -38,28 +38,29 @@
 
 </script>
 <div class="container">
-    <form:form class="row g-3 m-4" modelAttribute="UserDTO" method="post">
+    <form:form class="row g-3 m-4" modelAttribute="userDTO" method="post">
         <div class="row mb-3">
-            <label for="user_id" class="col-sm-2 col-form-label">*아이디</label>
+            <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
             <div class="col-auto">
-                <form:input type="text" class="form-control" path="user_id" id="user_id"/>
+                <form:input type="text" class="form-control" path="user_id" id="user_id" value="${login.user_id}"/>
+                <form:errors path="user_id" cssStyle="color: #dc3545"></form:errors>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-primary mb-3" id="idDupulicatedcheck">아이디중복</button>
             </div>
             <div class="col-sm-3">
-                <span id="idcheck" class="fs-5" style="font-size: 15px"></span>
+                <span id="idcheck" class="fs-5"></span>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_pw" class="col-sm-2 col-form-label">*비밀번호</label>
+            <label for="user_pw" class="col-sm-2 col-form-label">비밀번호*</label>
             <div class="col-auto">
-                <form:input type="password" class="form-control" path="user_pw" id="user_pw"/>
-                <form:errors path="user_pw"></form:errors>
+                <form:input type="password" class="form-control" path="user_pw" name="user_pw" id="user_pw"/>
+                <form:errors path="user_pw" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_pw2" class="col-sm-2 col-form-label">비밀번호확인</label>
+            <label for="user_pw2" class="col-sm-2 col-form-label">비밀번호확인*</label>
             <div class="col-auto">
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
             </div>
@@ -68,29 +69,32 @@
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_name" class="col-sm-2 col-form-label">이름</label>
+            <label for="user_name" class="col-sm-2 col-form-label">이름*</label>
             <div class="col-auto">
-                <form:input type="text" class="form-control" path="user_name"/>
+                <form:input type="text" class="form-control" path="user_name" value="${login.user_name}"/>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_birth" class="col-sm-2 col-form-label">생년월일</label>
+            <label for="user_birth" class="col-sm-2 col-form-label">생년월일*</label>
             <div class="col-auto">
-                <input type="date" class="form-control small-input" name="user_birth" id="user_birth" style="width: 150px; height: 30px; font-size: 12px;">
+                <input type="date" class="form-control small-input" name="user_birth" id="user_birth" path="user_birth" style="width: 150px; height: 30px; font-size: 12px;">
+                <form:errors path="user_birth" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_phone" class="col-sm-2 col-form-label">전화번호</label>
+            <label for="user_phone" class="col-sm-2 col-form-label">전화번호*</label>
             <div class="col-auto">
                 <label for="user_phone" class="visually-hidden">전화번호</label>
-                <input type="text" name="user_phone" class="form-control" id="user_phone">
+                <input type="text" name="user_phone" class="form-control" id="user_phone" path="user_phone">
+                <form:errors path="user_phone" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
-            <label for="user_email" class="col-sm-2 col-form-label">이메일</label>
+            <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
                 <input type="text" name="user_email" class="form-control" id="user_email" placeholder="직접입력">
+                <form:errors path="user_email" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <hr>
@@ -116,8 +120,8 @@
         </div>
         <hr>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">Sign in</button>
-            <button type="reset" class="btn btn-primary">cancel</button>
+            <button type="submit" class="btn btn-primary">회원가입</button>
+            <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
         </div>
     </form:form>
 </div>

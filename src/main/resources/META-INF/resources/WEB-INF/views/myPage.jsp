@@ -22,13 +22,13 @@
             width: 90%;
             height: 40px;
         }
-        #errormsg {
-            display: block;
-            padding: 10px 10px;
-            margin-bottom: 10px;
-            border: 1px solid #dc3545;
-            font-size: 14px;
-            color: #dc3545;
+        input[readonly] {
+            background-color: #f2f2f2;
+            color: #b3b3b3;
+            pointer-events: none;
+        }
+        .fs-5 {
+            font-size: 1rem !important;
         }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
@@ -38,7 +38,7 @@
 <div class="App">
     <jsp:include page="common/header.jsp" flush="true" /><br>
     <hr>
-    <jsp:include page="user/loginForm.jsp" flush="true" />
+    <jsp:include page="user/myPage.jsp" flush="true" />
 </div>
 </body>
 </html>

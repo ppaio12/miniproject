@@ -6,7 +6,9 @@ import java.util.Map;
 
 public interface UserService {
 
-    public UserDTO idCheck(String user_id);
-    public int addUser(UserDTO user);
+    public UserDTO idCheck(String userid);
+    public int addUser(UserDTO dto);
     public UserDTO findById(String userid);
+    public UserDTO myPage(String userid);
+    public int updateUser(UserDTO dto);
 }
