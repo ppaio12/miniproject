@@ -5,21 +5,23 @@
 
 <mapper namespace="com.exam.mapper.UserMapper">
 
-    <!-- idCheck -->
+    <!-- ID중복 여부 체크 -->
     <select id="idCheck" parameterType="string" resultType="UserDTO">
         select * from user where user_id = #{user_id}
     </select>
 
-    <!-- signup -->
+    <!-- 회원가입 -->
     <insert id="addUser" parameterType="UserDTO">
         insert into user (user_id, user_pw, user_name, user_birth, user_post, user_addr1, user_addr2, user_phone, user_email)
         values (#{user_id}, #{user_pw}, #{user_name}, #{user_birth}, #{user_post}, #{user_addr1}, #{user_addr2}, #{user_phone}, #{user_email});
     </insert>
 
+<!--    로그인 정보 찾기-->
     <select id="findById" parameterType="string" resultType="UserDTO">
         select * from user where user_id = #{user_id}
     </select>
 
+<!--    회원정보 수정-->
     <update id="updateUser" parameterType="string">
         update user set
         user_pw = #{user_pw},

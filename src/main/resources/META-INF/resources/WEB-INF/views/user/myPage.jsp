@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha384-REHJ0a8r2w5JgYgop6H+L5fiv/x6UU7DhcjKMzV+5B00uPugqoU9wO2dE2WLPpH+" crossorigin="anonymous"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <script type="text/javascript">
     // 비밀번호 일치 확인

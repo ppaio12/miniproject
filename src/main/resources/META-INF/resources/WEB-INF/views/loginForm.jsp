@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>메인홈페이지</title>
+    <title>로그인</title>
     <style type="text/css">
         .App {
             text-align: center;
@@ -36,8 +36,7 @@
 </head>
 <body>
 <div class="App">
-    <jsp:include page="common/header.jsp" flush="true" /><br>
-    <hr>
+    <jsp:include page="common/header.jsp" flush="true" />
     <jsp:include page="user/loginForm.jsp" flush="true" />
 </div>
 </body>

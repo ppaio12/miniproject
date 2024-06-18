@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>메인홈페이지</title>
+    <title>상세페이지</title>
     <style type="text/css">
         .App {
             text-align: center;
@@ -15,18 +15,12 @@
             margin: 10px;
             padding: 5px;
         }
+
         footer {
             bottom: 0;
             position: absolute;
             width: 90%;
             height: 40px;
-        }
-        .mb-5 {
-            margin-bottom: 0;
-        !important;
-        }
-        .border {
-            --bs-border-width: 0px; !important;
         }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
@@ -35,7 +29,7 @@
 <body>
 <div class="App">
     <jsp:include page="common/header.jsp" flush="true" />
-    <jsp:include page="product/productList.jsp" flush="true" />
+    <jsp:include page="product/productDetail.jsp" flush="true" />
 </div>
 </body>
 </html>

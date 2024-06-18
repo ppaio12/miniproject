@@ -4,7 +4,7 @@ public class ProductDTO {
     private int product_idx;
     private String product_name;
     private int product_price;
-    private String product_img;
+    private String product_image;
     private String product_content;
     private int product_quantity;
     private String product_category;
@@ -12,11 +12,11 @@ public class ProductDTO {
     public ProductDTO() {
     }
 
-    public ProductDTO(int product_idx, String product_name, int product_price, String product_img, String product_content, int product_quantity, String product_category) {
+    public ProductDTO(int product_idx, String product_name, int product_price, String product_image, String product_content, int product_quantity, String product_category) {
         this.product_idx = product_idx;
         this.product_name = product_name;
         this.product_price = product_price;
-        this.product_img = product_img;
+        this.product_image = product_image;
         this.product_content = product_content;
         this.product_quantity = product_quantity;
         this.product_category = product_category;
@@ -46,12 +46,12 @@ public class ProductDTO {
         this.product_price = product_price;
     }
 
-    public String getProduct_img() {
-        return product_img;
+    public String getProduct_image() {
+        return product_image;
     }
 
-    public void setProduct_img(String product_img) {
-        this.product_img = product_img;
+    public void setProduct_image(String product_image) {
+        this.product_image = product_image;
     }
 
     public String getProduct_content() {
@@ -84,7 +84,7 @@ public class ProductDTO {
                 "product_idx=" + product_idx +
                 ", product_name='" + product_name + '\'' +
                 ", product_price=" + product_price +
-                ", product_img='" + product_img + '\'' +
+                ", product_image='" + product_image + '\'' +
                 ", product_content='" + product_content + '\'' +
                 ", product_quantity=" + product_quantity +
                 ", product_category='" + product_category + '\'' +

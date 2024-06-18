@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.ProductMapper">
+
+    <select id="productList" parameterType="string" resultType="ProductDTO">
+        select *
+        from product
+        where product_category = #{product_category}
+    </select>
+
+    <select id="productDetail" parameterType="int" resultType="ProductDTO">
+        select * from product where product_idx = #{product_idx}
+    </select>
+
+
+
+
+</mapper>
+
+
