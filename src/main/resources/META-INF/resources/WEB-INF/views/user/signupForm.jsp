@@ -39,10 +39,7 @@
 </script>
 <div class="container">
     <form:form class="row g-3 m-4" modelAttribute="userDTO" method="post">
-        <div class="row mb-2" >
-			<div class="col-3">
-												                <div></div>
-												</div>
+        <div class="row mb-3">
             <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
             <div class="col-auto">
                 <form:input type="text" class="form-control" path="user_id" id="user_id" value="${login.user_id}"/>
@@ -56,9 +53,6 @@
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-				<div></div>
-			</div>
             <label for="user_pw" class="col-sm-2 col-form-label">비밀번호*</label>
             <div class="col-auto">
                 <form:input type="password" class="form-control" path="user_pw" name="user_pw" id="user_pw"/>
@@ -66,9 +60,6 @@
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <label for="user_pw2" class="col-sm-2 col-form-label">비밀번호확인*</label>
             <div class="col-auto">
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
@@ -78,28 +69,19 @@
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <label for="user_name" class="col-sm-2 col-form-label">이름*</label>
             <div class="col-auto">
                 <form:input type="text" class="form-control" path="user_name" value="${login.user_name}"/>
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <label for="user_birth" class="col-sm-2 col-form-label">생년월일*</label>
             <div class="col-auto">
-                <input type="date" class="form-control small-input" name="user_birth" id="user_birth" path="user_birth">
+                <input type="date" class="form-control small-input" name="user_birth" id="user_birth" path="user_birth" style="width: 150px; height: 30px; font-size: 12px;">
                 <form:errors path="user_birth" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <label for="user_phone" class="col-sm-2 col-form-label">전화번호*</label>
             <div class="col-auto">
                 <label for="user_phone" class="visually-hidden">전화번호</label>
@@ -108,9 +90,6 @@
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
@@ -120,9 +99,6 @@
         </div>
         <hr>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <div class="col-auto">
                 <label for="sample4_postcode" class="visually-hidden">post</label>
                 <input type="text" name="user_post" class="form-control" id="sample4_postcode" placeholder="우편번호">
@@ -132,24 +108,16 @@
             </div>
         </div>
         <div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <div class="col-sm-5">
                 <label for="sample4_roadAddress" class="visually-hidden">도로명주소</label>
                 <input type="text" name="user_addr1" class="form-control" id="sample4_roadAddress" placeholder="도로명주소">
             </div>
-        </div>
-		<div class="row mb-3">
-			<div class="col-3">
-							<div></div>
-						</div>
             <div class="col-sm-5">
                 <label for="sample4_jibunAddress" class="visually-hidden">지번주소</label>
                 <input type="text" name="user_addr2" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
                 <span id="guide" style="color:#999"></span>
             </div>
-		</div>
+        </div>
         <hr>
         <div class="col-12">
             <button type="submit" class="btn btn-primary">회원가입</button>
