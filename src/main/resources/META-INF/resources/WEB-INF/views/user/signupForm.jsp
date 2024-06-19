@@ -16,7 +16,7 @@
             }
             $("#pwdcheck").text(mesg);
         });
-
+        // 아이디 중복체크
         $("#idDupulicatedcheck").on("click", function(event) {
             event.preventDefault();
             $.ajax({
@@ -28,6 +28,9 @@
                 },
                 success: function(data, status, xhr) {
                     $("#idcheck").text(data);
+                    if(data === '사용 가능한 ID입니다') {
+                        $("#user_id").attr("readonly", true);
+                    }
                 },
                 error: function(xhr, status, error) {
                     console.log(error);
@@ -45,14 +48,14 @@
 												</div>
             <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
             <div class="col-auto">
-                <form:input type="text" class="form-control" path="user_id" id="user_id" value="${login.user_id}"/>
+                <form:input type="text" class="form-control" path="user_id" id="user_id" />
                 <form:errors path="user_id" cssStyle="color: #dc3545"></form:errors>
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary mb-3" id="idDupulicatedcheck">아이디중복</button>
+                <button type="button" class="btn btn-light btn-outline-secondary mb-3" id="idDupulicatedcheck">아이디중복</button>
             </div>
-            <div class="col-sm-3">
-                <span id="idcheck" class="fs-5"></span>
+            <div class="col-auto">
+                <span id="idcheck" class="fs-6"></span>
             </div>
         </div>
         <div class="row mb-3">
@@ -74,7 +77,7 @@
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
             </div>
             <div class="col-sm-3">
-                <span id="pwdcheck" class="fs-5"></span>
+                <span id="pwdcheck" class="fs-6"></span>
             </div>
         </div>
         <div class="row mb-3">
@@ -83,7 +86,7 @@
 						</div>
             <label for="user_name" class="col-sm-2 col-form-label">이름*</label>
             <div class="col-auto">
-                <form:input type="text" class="form-control" path="user_name" value="${login.user_name}"/>
+                <form:input type="text" class="form-control" path="user_name" />
             </div>
         </div>
         <div class="row mb-3">
@@ -103,7 +106,7 @@
             <label for="user_phone" class="col-sm-2 col-form-label">전화번호*</label>
             <div class="col-auto">
                 <label for="user_phone" class="visually-hidden">전화번호</label>
-                <input type="text" name="user_phone" class="form-control" id="user_phone" path="user_phone">
+                <form:input type="text" class="form-control" path="user_phone" />
                 <form:errors path="user_phone" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
@@ -114,7 +117,7 @@
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
-                <input type="text" name="user_email" class="form-control" id="user_email" placeholder="직접입력">
+                <form:input type="text" path="user_email" class="form-control" placeholder="직접입력" />
                 <form:errors path="user_email" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
@@ -124,11 +127,11 @@
 							<div></div>
 						</div>
             <div class="col-auto">
-                <label for="sample4_postcode" class="visually-hidden">post</label>
-                <input type="text" name="user_post" class="form-control" id="sample4_postcode" placeholder="우편번호">
+                <label for="user_post" class="visually-hidden">post</label>
+                <form:input type="text" path="user_post" class="form-control" id="user_post" placeholder="우편번호" />
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary mb-3" onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
+                <button type="button" class="btn btn-light btn-outline-secondary mb-3" onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
             </div>
         </div>
         <div class="row mb-3">
@@ -136,8 +139,8 @@
 							<div></div>
 						</div>
             <div class="col-sm-5">
-                <label for="sample4_roadAddress" class="visually-hidden">도로명주소</label>
-                <input type="text" name="user_addr1" class="form-control" id="sample4_roadAddress" placeholder="도로명주소">
+                <label for="user_addr1" class="visually-hidden">도로명주소</label>
+                <form:input type="text" path="user_addr1" class="form-control" id="user_addr1" placeholder="도로명주소" />
             </div>
         </div>
 		<div class="row mb-3">
@@ -145,15 +148,15 @@
 							<div></div>
 						</div>
             <div class="col-sm-5">
-                <label for="sample4_jibunAddress" class="visually-hidden">지번주소</label>
-                <input type="text" name="user_addr2" class="form-control" id="sample4_jibunAddress" placeholder="지번주소">
+                <label for="user_addr2" class="visually-hidden">지번주소</label>
+                <form:input type="text" path="user_addr2" class="form-control" id="user_addr2" placeholder="지번주소" />
                 <span id="guide" style="color:#999"></span>
             </div>
 		</div>
         <hr>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">회원가입</button>
-            <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
+            <button type="submit" class="btn btn-light btn-outline-secondary" id="submitCheck">회원가입</button>
+            <button type="reset" class="btn btn-light btn-outline-secondary" onclick="history.back()">취소</button>
         </div>
     </form:form>
 </div>

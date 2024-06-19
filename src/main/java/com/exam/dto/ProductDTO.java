@@ -1,24 +1,27 @@
 package com.exam.dto;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("ProductDTO")
 public class ProductDTO {
     private int product_idx;
     private String product_name;
     private int product_price;
     private String product_image;
     private String product_content;
-    private int product_quantity;
+    private int product_stock;
     private String product_category;
 
     public ProductDTO() {
     }
 
-    public ProductDTO(int product_idx, String product_name, int product_price, String product_image, String product_content, int product_quantity, String product_category) {
+    public ProductDTO(int product_idx, String product_name, int product_price, String product_image, String product_content, int product_stock, String product_category) {
         this.product_idx = product_idx;
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_image = product_image;
         this.product_content = product_content;
-        this.product_quantity = product_quantity;
+        this.product_stock = product_stock;
         this.product_category = product_category;
     }
 
@@ -62,12 +65,12 @@ public class ProductDTO {
         this.product_content = product_content;
     }
 
-    public int getProduct_quantity() {
-        return product_quantity;
+    public int getproduct_stock() {
+        return product_stock;
     }
 
-    public void setProduct_quantity(int product_quantity) {
-        this.product_quantity = product_quantity;
+    public void setproduct_stock(int product_stock) {
+        this.product_stock = product_stock;
     }
 
     public String getProduct_category() {
@@ -86,7 +89,7 @@ public class ProductDTO {
                 ", product_price=" + product_price +
                 ", product_image='" + product_image + '\'' +
                 ", product_content='" + product_content + '\'' +
-                ", product_quantity=" + product_quantity +
+                ", product_stock=" + product_stock +
                 ", product_category='" + product_category + '\'' +
                 '}';
     }

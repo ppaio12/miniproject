@@ -22,6 +22,44 @@
             width: 90%;
             height: 40px;
         }
+        #up:hover, #down:hover{
+            cursor: pointer;
+        }
+        .card-title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+        .card-text {
+            text-align: left;
+            margin-top: 15px;
+        }
+        .product_content {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #999;
+            border-bottom: 1px solid #e8e8e8;
+            padding: 0 0 10px;
+        }
+        .fw-light {
+            font-size: 13px;
+            color: #555555;
+            margin-right: 70px;
+        }
+        #option {
+            margin-top: 20px;
+        }
+        .option_menu {
+            width: 115px;
+            padding: 7px 0;
+            text-align: left;
+        }
+        #gAmount {
+            border: #e9ecef;
+            width: 14rem;
+            height: 1.8rem;
+        }
+
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>

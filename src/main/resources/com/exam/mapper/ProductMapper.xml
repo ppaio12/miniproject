@@ -15,6 +15,13 @@
         select * from product where product_idx = #{product_idx}
     </select>
 
+    <insert id="addCart" parameterType="cartDTO">
+        insert into cart(product_idx, user_idx, cart_quantity, cart_color, cart_size)
+        values(#{product_idx}, #{user_idx}, #{cart_quantity}, #{cart_color}, #{cart_size})
+    </insert>
+
+
+
 
 
 

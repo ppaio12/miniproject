@@ -23,51 +23,65 @@
     });// ready()
 </script>
 <div class="container">
-    <form class="row g-3 m-4">
-        <input type="hidden" name="gCode" value="${product.product_idx}">
+    <form class="row g-3 m-4" action="cartAdd" method="post">
+        <input type="hidden" name="product_idx" value="${product.product_idx}">
         <div class="row">
-            <div class="card" style="width:25rem;">
+            <div class="card border border-0" style="width:33rem;">
                 <img src="images/product/${product.product_image}.jpg" class="card-img-top" alt="...">
+            </div>
+            <div class="card border border-0" style="width:30rem;">
                 <div class="card-body">
-                    <h6 class="card-title">
-                        <span class="fw-bold">제품코드:</span>
-                        ${product.product_idx}</h6>
-                    <h6 class="card-text">
-                        <span class="fw-bold ">상품명:</span>
-                        ${product.product_name}</h6>
-                    <h6 class="card-text">
-                        <span class="fw-bold ">가격:</span>
-                        ${product.product_price}</h6>
-                    <h6 class="card-text">
-                        <span class="fw-bold ">상품옵션:</span>
-                        <select class="select_change" size="1" name="gSize" id="gSize">
-                            <option selected value="사이즈선택">사이즈선택</option>
-                            <option value="L">L</option>
-                            <option value="M">M</option>
-                            <option value="S">S</option>
-                        </select>
-                        <select class="select_change" name="gColor" id="gColor">
-                            <option selected value="색상선택">색상선택</option>
-                            <option value="navy">navy</option>
-                            <option value="black">black</option>
-                            <option value="ivory">ivory</option>
-                            <option value="white">white</option>
-                            <option value="gray">gray</option>
-                        </select>
-                    </h6>
-                    <h6 class="card-text">
-
-                        <span class="fw-bold ">주문수량:</span>
-                        <input type="text" name="gAmount" value="1" id="gAmount">
-                        <img src="images/up.PNG" id="up">
-                        <img src="images/down.PNG" id="down">
-
-                    </h6>
-                    <a href="#" class="btn btn-primary mt-3">구매</a>
-                    <button type="submit" class="btn btn-primary mt-3">장바구니</button>
+                    <div class="card-title">
+                        <h2 class="fw-bold">
+                            ${product.product_name}
+                        </h2>
+                    </div>
+                    <div class="card-text product_content">
+                        <span class="fw-light content_border">
+                            ${product.product_content}
+                        </span>
+                    </div>
+                    <table class="table-light" id="option">
+                        <tbody style="height: 165px">
+                            <tr class="table-light">
+                                <th scope="row" class="fw-light option_menu">Color</th>
+                                <td>
+                                    <select class="select_change form-select-sm border-light-subtle fw-light" name="cart_color" id="Color">
+                                        <option value="*" selected="">- [필수] 옵션을 선택해 주세요 -</option>
+                                        <option value="**" disabled="">-------------------</option>
+                                        <option value="white">white</option>
+                                        <option value="gray">gray</option>
+                                        <option value="navy">navy</option>
+                                        <option value="black">black</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row" class="fw-light option_menu">Size</th>
+                                <td>
+                                    <select class="select_change form-select-sm border-light-subtle fw-light" name="cart_size" id="Size">
+                                        <option value="*" selected="">- [필수] 옵션을 선택해 주세요 -</option>
+                                        <option value="**" disabled="">-------------------</option>
+                                        <option value="L">L</option>
+                                        <option value="M">M</option>
+                                        <option value="S">S</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr class="table-light">
+                                <th scope="row" class="fw-light option_menu">주문수량</th>
+                                <td>
+                                    <input type="text" name="cart_quantity" value="1" id="cart_quantity">
+                                    <img src="images/up.PNG" id="up">
+                                    <img src="images/down.PNG" id="down">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <a href="#" class="btn btn-light btn-outline-secondary mt-3">구매</a>
+                    <button type="submit" class="btn btn-light btn-outline-secondary mt-3">장바구니</button>
                 </div>
             </div>
-
         </div>
     </form>
 </div>
