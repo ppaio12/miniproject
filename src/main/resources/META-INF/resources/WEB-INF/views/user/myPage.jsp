@@ -39,7 +39,7 @@
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
             </div>
             <div class="col-sm-3">
-                <span id="pwdcheck" class="fs-5" style="color: #dc3545;"></span>
+                <span id="pwdcheck" class="fs-5" style="color: black;"></span>
             </div>
         </div>
         <div class="row mb-3">
