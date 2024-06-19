@@ -4,8 +4,6 @@ import com.exam.dto.UserDTO;
 import com.exam.mapper.UserMapper;
 import org.springframework.stereotype.Service;
 
-import java.util.Map;
-
 @Service
 public class UserServiceImpl implements UserService{
 

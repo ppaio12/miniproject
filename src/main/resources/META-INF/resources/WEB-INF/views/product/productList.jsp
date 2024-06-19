@@ -5,7 +5,7 @@
 
 <div class="container">
     <div class="row">
-        <c:forEach var="dto" items="${productList}" >
+        <c:forEach var="dto" items="${cartList}" >
             <div class="col border border-dark m-4 w-80">
                 <a href="productDetail?category_idx=${dto.product_idx}">
                     <img src="images/product/${dto.product_image}.jpg" width="350">

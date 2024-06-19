@@ -64,7 +64,7 @@
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item">
-                            <a class="nav-link" href="cart">cart</a>
+                            <a class="nav-link" href="cartList">cart</a>
                         </li>
                     </sec:authorize>
                 </ul>

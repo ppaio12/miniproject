@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
+    <title>메인홈페이지</title>
     <style type="text/css">
         .App {
             text-align: center;
@@ -22,27 +22,16 @@
             width: 90%;
             height: 40px;
         }
-        input[readonly] {
-            background-color: #f2f2f2;
-            color: #b3b3b3;
-            pointer-events: none;
-        }
-        #idcheck {
-            color: #dc3545;
-            margin-top: 6px;
-        }
-        #pwdcheck {
-            color: #dc3545;
-            margin-top: 6px;
-        }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
 </head>
 <body>
 <div class="App">
-    <jsp:include page="common/header.jsp" flush="true" />
-    <jsp:include page="user/signupForm.jsp" flush="true" />
+    <jsp:include page="common/header.jsp" flush="true" /><br>
+    <jsp:include page="common/menu.jsp" flush="true" />
+    <hr>
+    <jsp:include page="product/cartList.jsp" flush="true" />
 </div>
 </body>
 </html>

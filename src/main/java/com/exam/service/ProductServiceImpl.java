@@ -24,4 +24,5 @@ public class ProductServiceImpl implements ProductService {
     public ProductDTO productDetail(int idx) {
         return productMapper.productDetail(idx);
     }
+
 }

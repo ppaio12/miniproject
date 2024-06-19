@@ -17,7 +17,7 @@ public class ProductController {
     }
 
     @GetMapping("/productDetail")
-        public String productDetail(@RequestParam int category_idx, Model model) {
+    public String productDetail(@RequestParam int category_idx, Model model) {
         ProductDTO productDTO = productService.productDetail(category_idx);
         model.addAttribute("product", productDTO);
         return "productDetail";
