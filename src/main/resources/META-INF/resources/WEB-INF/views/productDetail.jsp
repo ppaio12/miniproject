@@ -60,10 +60,11 @@
             height: 1.8rem;
         }
 		.quantityintput{
+			width:224.8px;
 			height:29.6px;
 			border: 0.5px solid;
-			border-color:#E0E0E0;
-			border-radius: 4.5%;
+			border-color:#EAEAEA;
+			border-radius: 4px;
 		}
 
     </style>
