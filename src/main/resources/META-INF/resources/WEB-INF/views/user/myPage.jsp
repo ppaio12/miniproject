@@ -78,7 +78,7 @@
                 <input type="text" name="user_post" class="form-control" id="sample4_postcode" value="${login.user_post}" placeholder="우편번호">
             </div>
             <div class="col-auto">
-                <button type="button" class="btn btn-primary mb-3" onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
+                <button type="button" class="btn btn-light btn-outline-dark mary mb-3" onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
             </div>
         </div>
         <div class="row mb-3">
@@ -93,8 +93,8 @@
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-primary">수정하기</button>
-            <button type="reset" class="btn btn-primary" onclick="history.back()">취소</button>
+            <button type="submit" class="btn btn-light btn-outline-dark mary">수정하기</button>
+            <button type="reset" class="btn btn-light btn-outline-dark mary" onclick="history.back()">취소</button>
         </div>
     </form:form>
 </div>

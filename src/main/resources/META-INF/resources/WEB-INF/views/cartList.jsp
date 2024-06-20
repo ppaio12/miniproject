@@ -22,6 +22,19 @@
             width: 90%;
             height: 40px;
         }
+        tr, td {
+            font-size: 12px;
+            color: #353535;
+            vertical-align: middle;
+        }
+        .totalPrice {
+            text-align: right;
+        }
+        .span {
+            font-size: 12px;
+            color: #353535;
+            vertical-align: middle;
+        }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
@@ -29,8 +42,6 @@
 <body>
 <div class="App">
     <jsp:include page="common/header.jsp" flush="true" /><br>
-    <jsp:include page="common/menu.jsp" flush="true" />
-    <hr>
     <jsp:include page="product/cartList.jsp" flush="true" />
 </div>
 </body>

@@ -20,7 +20,7 @@
             }
         });
 
-    });// ready()
+    });
 </script>
 <div class="container">
     <form class="row g-3 m-4" action="cartAdd" method="post">
@@ -78,8 +78,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-light btn-outline-secondary mt-3">구매</a>
-                    <button type="submit" class="btn btn-light btn-outline-secondary mt-3">장바구니</button>
+                    <a href="#" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">구매</a>
+                    <button type="submit" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">장바구니</button>
                 </div>
             </div>
         </div>

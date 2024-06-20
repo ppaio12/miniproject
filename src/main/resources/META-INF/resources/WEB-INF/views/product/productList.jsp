@@ -2,10 +2,9 @@
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
 <div class="container">
     <div class="row">
-        <c:forEach var="dto" items="${cartList}" >
+        <c:forEach var="dto" items="${productList}" >
             <div class="col border border-dark m-4 w-80">
                 <a href="productDetail?category_idx=${dto.product_idx}">
                     <img src="images/product/${dto.product_image}.jpg" width="350">

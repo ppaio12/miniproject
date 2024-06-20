@@ -30,6 +30,18 @@
             font-size: 14px;
             color: #dc3545;
         }
+        #login_title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 40px 0;
+        }
+        #userCheck {
+            color: #dc3545;
+            margin-top: 1rem;
+        }
+        .mb-3 {
+            justify-content: center;
+        }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
