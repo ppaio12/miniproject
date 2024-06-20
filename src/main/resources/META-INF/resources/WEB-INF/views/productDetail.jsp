@@ -59,6 +59,12 @@
             width: 14rem;
             height: 1.8rem;
         }
+		.quantityintput{
+			height:29.6px;
+			border: 0.5px solid;
+			border-color:#E0E0E0;
+			border-radius: 4.5%;
+		}
 
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
