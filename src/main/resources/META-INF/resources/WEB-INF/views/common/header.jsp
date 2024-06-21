@@ -2,7 +2,7 @@
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
-<header class="border-bottom border-light border-5 mb-5 p-2">
+<header class="border-bottom border-light border-5 p-2">
     <div class="container">
         <div class="row">
             <nav class="navbar navbar-expand-lg">
@@ -37,9 +37,6 @@
                         </div>
                     </nav>
                 </div>
-
-
-
 
                 <ul class="navbar-nav">
                     <sec:authorize access="isAnonymous()">

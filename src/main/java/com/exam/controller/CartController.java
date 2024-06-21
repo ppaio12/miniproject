@@ -4,12 +4,14 @@ import com.exam.dto.CartDTO;
 import com.exam.dto.UserDTO;
 import com.exam.service.CartService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -21,6 +23,7 @@ public class CartController {
         this.cartService = cartService;
     }
 
+    // 장바구니 추가
     @PostMapping("/cartAdd")
     public String cartAdd(@RequestParam String cart_color,
                           @RequestParam String cart_size,
@@ -40,14 +43,36 @@ public class CartController {
         return "redirect:cartList";
     }
 
+    // 장바구니 전체 목록
     @GetMapping("/cartList")
     public String cartList(@AuthenticationPrincipal UserDTO userDTO, ModelMap model) {
         int user_idx = userDTO.getUser_idx();
         List<CartDTO> cartList = cartService.cartList(user_idx);
-        System.out.println(cartList);
         model.addAttribute("cartList", cartList);
-
         return "cartList";
+    }
+
+    // 장바구니 한 행 삭제
+    @GetMapping("/deleteCartOne")
+    public String deleteCartOne(@RequestParam("cart_idx") int cartIdx) {
+        int success = cartService.deleteCartOne(cartIdx);
+        return "redirect:cartList";
+    }
+    
+    // 장바구니 선택 항목 삭제
+    @GetMapping("/deleteCartSelected")
+    public String deleteCartSelected(@RequestParam("cartSelected") List<Integer> cartSelected) {
+        System.out.println(cartSelected);
+        int result = cartService.deleteCartSelected(cartSelected);
+        return "redirect:/cartList";
+    }
+
+    // 장바구니 전체 삭제
+    @GetMapping("/deleteCartAll")
+    public String deleteCartOne(@AuthenticationPrincipal UserDTO userDTO) {
+        UserDTO login = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        int success = cartService.deleteCartAll(login.getUser_idx());
+        return "redirect:cartList";
     }
 
 }

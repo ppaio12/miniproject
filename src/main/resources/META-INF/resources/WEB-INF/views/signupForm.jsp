@@ -27,13 +27,18 @@
             color: #b3b3b3;
             pointer-events: none;
         }
-        #idcheck {
+        #idcheck, #pwdcheck {
             color: #dc3545;
             margin-top: 6px;
+            line-height: 35px;
         }
-        #pwdcheck {
-            color: #dc3545;
-            margin-top: 6px;
+        #join_title {
+            font-size: 27px;
+            font-weight: bold;
+            margin: 40px 0;
+        }
+        textarea {
+            resize: none;
         }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>

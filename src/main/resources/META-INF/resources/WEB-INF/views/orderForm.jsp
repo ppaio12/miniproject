@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>메인홈페이지</title>
+    <title>주문페이지</title>
     <style type="text/css">
         .App {
             text-align: center;
@@ -35,14 +35,49 @@
             color: #353535;
             vertical-align: middle;
         }
+        .titleArea {
+            margin: 3% 0 30px;
+            text-align: center;
+        }
+        .titleArea h2 {
+            font-size: 18px;
+            color: black;
+        }
+        .userInfoTop {
+            font-size: 13px;
+            color: #353535;
+            margin: 30px;
+        }
+        .title h3 {
+            font-size: 13px;
+            color: #353535;
+            text-align: left;
+            margin-left: 45px;
+        }
+        .title .required {
+            margin: -15px 0 0;
+            color: #353535;
+            text-align: right;
+        }
+        #infoChange {
+            font-size: 13px;
+            color: #757575;
+            margin: 5px 45px;
+            text-align: left;
+        }
+        .userInfo {
+            margin: auto;
+            margin-top: 30px;
+        }
+
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
 </head>
 <body>
 <div class="App">
-    <jsp:include page="common/header.jsp" flush="true" /><br>
-    <jsp:include page="product/cartList.jsp" flush="true" />
+    <jsp:include page="common/header.jsp" flush="true" />
+    <jsp:include page="order/orderForm.jsp" flush="true" />
 </div>
 </body>
 </html>

@@ -37,11 +37,17 @@
             font-size: 12px;
             margin-top: 7px;
         }
-
+         .form-control:focus {
+             box-shadow: none;
+             border-color: black;
+             outline: none;
+         }
+         .btn-light btn-outline-dark  {
+            --bs-btn-bg: none;
+         }
 
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/custom.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
 </head>
 <body>

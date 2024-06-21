@@ -32,7 +32,21 @@
         </collection>
     </resultMap>
 
+    <delete id="deleteCartOne" parameterType="int">
+        delete from cart where cart_idx = #{cart_idx}
+    </delete>
 
+    <delete id="deleteCartSelected" parameterType="java.util.List">
+        delete from cart
+        where cart_idx in
+        <foreach collection="list" item="cart_idx" open="(" separator="," close=")">
+            #{cart_idx}
+        </foreach>
+    </delete>
+
+    <delete id="deleteCartAll" parameterType="int">
+        delete from cart where user_idx = #{user_idx}
+    </delete>
 
 
 

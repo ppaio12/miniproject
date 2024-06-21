@@ -6,21 +6,21 @@
     $(document).ready(function(){
 
         $("#up").on("click", function(){
-
-            var gAmount = Number.parseInt(  $("#gAmount").val() );
-            $("#gAmount").val(gAmount+1);
+            var gAmount = Number.parseInt( $("#cart_quantity").val() );
+            console.log(gAmount);
+            $("#cart_quantity").val(gAmount+1);
         });
 
         $("#down").on("click", function(){
-            var gAmount = Number.parseInt(  $("#gAmount").val() );
+            var gAmount = Number.parseInt(  $("#cart_quantity").val() );
             if(gAmount==1){
-                $("#gAmount").val(1);
+                $("#cart_quantity").val(1);
             }else{
-                $("#gAmount").val(gAmount-1);
+                $("#cart_quantity").val(gAmount-1);
             }
         });
 
-    });// ready()
+    });
 </script>
 <div class="container">
     <form class="row g-3 m-4" action="cartAdd" method="post">
@@ -78,8 +78,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <a href="#" class="btn btn-light btn-outline-secondary mt-3">구매</a>
-                    <button type="submit" class="btn btn-light btn-outline-secondary mt-3">장바구니</button>
+                    <a href="#" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">구매</a>
+                    <button type="submit" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">장바구니</button>
                 </div>
             </div>
         </div>
