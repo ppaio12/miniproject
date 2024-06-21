@@ -14,7 +14,7 @@ public class SecurityFilter {
         // 인증 제외할 맵핑값
         http.csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/login", "/main","/signup","/idCheck", "/productDetail", "/orderForm", "/webjars/**", "/images/**")
+                .antMatchers("/login", "/main","/signup","/idCheck", "/productDetail", "/webjars/**", "/images/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated();

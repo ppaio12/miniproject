@@ -6,6 +6,8 @@
 
     // PW 일치 확인
     $(document).ready(function () {
+        var submitCheck = false;
+
         $("#user_pw2").on("keyup", function () {
             var user_pw = $("#user_pw").val();
             var user_pw2 = $("#user_pw2").val();
@@ -16,6 +18,7 @@
             }
             $("#pwdcheck").text(mesg);
         });
+
         // 아이디 중복체크
         $("#idDupulicatedcheck").on("click", function (event) {
             event.preventDefault();
@@ -30,12 +33,19 @@
                     $("#idcheck").text(data);
                     if (data === '사용 가능한 ID입니다') {
                         $("#user_id").attr("readonly", true);
+                        submitCheck = true;
                     }
                 },
                 error: function (xhr, status, error) {
                     console.log(error);
                 }
             });
+        });
+        $("#submitForm").on("submit", function (event) {
+            if (!submitCheck) {
+                event.preventDefault();
+                alert("아이디 중복을 먼저 확인해주세요.");
+            }
         });
     });
 
@@ -46,7 +56,7 @@
         <h2 id="join_title">Join US</h2>
     </div>
 
-    <form:form class="row g-3 m-4" modelAttribute="userDTO" method="post">
+    <form:form class="row g-3 m-4" modelAttribute="userDTO" method="post" id="submitForm">
         <div class="row mb-2">
             <div class="col-3"></div>
             <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
@@ -112,6 +122,7 @@
             <div class="col-auto">
                 <label for="sample4_postcode" class="visually-hidden">post</label>
                 <form:input type="text" path="user_post" class="form-control" id="sample4_postcode" placeholder="우편번호"/>
+                <form:errors path="user_post" cssStyle="color: #dc3545"></form:errors>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-light btn-outline-dark  btn-outline-secondary mb-3"
@@ -124,6 +135,7 @@
             <div class="col-sm-5">
                 <label for="sample4_roadAddress" class="visually-hidden">도로명주소</label>
                 <form:input type="text" path="user_addr1" class="form-control" id="sample4_roadAddress" placeholder="도로명주소"/>
+                <form:errors path="user_addr1" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
@@ -131,6 +143,7 @@
             <div class="col-sm-5">
                 <label for="sample4_jibunAddress" class="visually-hidden">지번주소</label>
                 <form:input type="text" path="user_addr2" class="form-control" id="sample4_jibunAddress" placeholder="지번주소"/>
+                <form:errors path="user_addr2" cssStyle="color: #dc3545"></form:errors>
                 <span id="guide" style="color:#999"></span>
             </div>
         </div>
