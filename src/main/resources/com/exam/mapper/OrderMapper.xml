@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.exam.mapper.OrderMapper">
+
+    <insert id="addOrder" parameterType="OrderDTO">
+        insert into order(user_idx, product_idx, order_quantity, order_totalPrice, order_comment, order_date)
+        values(#{user_idx}, #{product_idx}, #{order_quantity}, #{order_totalPrice}, #{order_comment}, #{order_date})
+    </insert>
+
+
+
+
+<!--    <resultMap type="orderDTO" id="orderDTO">-->
+<!--        <id  property="order_idx" column="order_idx"/>-->
+<!--        <result property="user_idx"  column="user_idx"/>-->
+<!--        <result property="prodwcuct_idx"  column="prodwcuct_idx"/>-->
+<!--        <result property="order_quantity"  column="order_quantity"/>-->
+<!--        <result property="order_totalPrice"  column="order_totalPrice"/>-->
+<!--        <result property="order_comment"  column="order_comment"/>-->
+<!--        <result property="order_date"  column="order_date"/>-->
+
+<!--        <collection property="cartList" ofType="java.util.Map">-->
+<!--            <id  property="cart_idx" column="cart_idx"/>-->
+<!--            <result property="product_idx"  column="product_idx"/>-->
+<!--            <result property="user_idx"  column="user_idx"/>-->
+<!--            <result property="cart_quantity"  column="cart_quantity"/>-->
+<!--            <result property="cart_color"  column="cart_color"/>-->
+<!--            <result property="cart_size"  column="cart_size"/>-->
+<!--        </collection>-->
+
+<!--    </resultMap>-->
+
+</mapper>
+
+

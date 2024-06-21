@@ -22,6 +22,12 @@
 
     });
 </script>
+
+<div class="titleArea">
+    <h2>Detail</h2>
+</div>
+<hr>
+
 <div class="container">
     <form class="row g-3 m-4" action="cartAdd" method="post">
         <input type="hidden" name="product_idx" value="${product.product_idx}">

@@ -50,12 +50,13 @@
     });
 
 </script>
+
+<div class="titleArea">
+    <h2>Sign up</h2>
+</div>
+<hr>
+
 <div class="container">
-
-    <div>
-        <h2 id="join_title">Join US</h2>
-    </div>
-
     <form:form class="row g-3 m-4" modelAttribute="userDTO" method="post" id="submitForm">
         <div class="row mb-2">
             <div class="col-3"></div>
@@ -112,7 +113,7 @@
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
-                <form:input type="text" path="user_email" class="form-control" placeholder="직접입력"/>
+                <form:input type="email" path="user_email" class="form-control" placeholder="직접입력"/>
                 <form:errors path="user_email" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>

@@ -1,5 +1,6 @@
 package com.exam.service;
 
+import com.exam.dto.OrderInfoDTO;
 import com.exam.mapper.OrderMapper;
 import org.springframework.stereotype.Service;
 
@@ -12,5 +13,8 @@ public class OrderServiceImpl implements OrderService{
         this.orderMapper = orderMapper;
     }
 
-
+    @Override
+    public int addOrder(OrderInfoDTO orderInfoDTO) {
+        return orderMapper.addOrder(orderInfoDTO);
+    }
 }

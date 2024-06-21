@@ -15,7 +15,7 @@
             margin: 10px;
             padding: 5px;
         }
-        footer {
+        r {
             bottom: 0;
             position: absolute;
             width: 90%;
@@ -45,15 +45,23 @@
          .btn-light btn-outline-dark  {
             --bs-btn-bg: none;
          }
+        .titleArea {
+            margin: 3% 0 30px;
+            text-align: center;
+        }
+        .titleArea h2 {
+            font-size: 18px;
+            color: black;
+        }
 
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>
 </head>
 <body>
-<div class="App">
-    <jsp:include page="common/header.jsp" flush="true" />
-    <jsp:include page="product/productList.jsp" flush="true" />
-</div>
+    <div class="App">
+        <jsp:include page="common/header.jsp" flush="true" />
+        <jsp:include page="product/productList.jsp" flush="true" />
+    </div>
 </body>
 </html>

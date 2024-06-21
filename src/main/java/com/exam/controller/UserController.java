@@ -62,7 +62,6 @@ public class UserController {
     // 마이페이지
     @GetMapping("/myPage")
     public String myPageForm(ModelMap model, @AuthenticationPrincipal UserDTO userDTO) {
-        UserDTO login = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("login", userDTO);
         return "myPage";
     }

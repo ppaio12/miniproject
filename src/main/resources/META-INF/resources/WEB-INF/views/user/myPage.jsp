@@ -18,6 +18,11 @@
     });
 </script>
 
+<div class="titleArea">
+    <h2>Mypage</h2>
+</div>
+<hr>
+
 <div class="container">
     <form:form class="row g-3 m-4" modelAttribute="login" method="post">
         <div class="row mb-3">
@@ -60,7 +65,7 @@
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
-                <input type="text" name="user_email" class="form-control" id="user_email" value="${login.user_email}" placeholder="직접입력">
+                <input type="email" name="user_email" class="form-control" id="user_email" value="${login.user_email}" placeholder="직접입력">
                 <form:errors path="user_email" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>

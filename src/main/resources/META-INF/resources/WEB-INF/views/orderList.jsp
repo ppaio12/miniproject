@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>회원가입</title>
+    <title>주문페이지</title>
     <style type="text/css">
         .App {
             text-align: center;
@@ -22,24 +22,6 @@
             width: 90%;
             height: 40px;
         }
-        input[readonly] {
-            background-color: #f2f2f2;
-            color: #b3b3b3;
-            pointer-events: none;
-        }
-        #idcheck, #pwdcheck {
-            color: #dc3545;
-            margin-top: 6px;
-            line-height: 35px;
-        }
-        #join_title {
-            font-size: 27px;
-            font-weight: bold;
-            margin: 40px 0;
-        }
-        textarea {
-            resize: none;
-        }
         .titleArea {
             margin: 3% 0 30px;
             text-align: center;
@@ -55,7 +37,7 @@
 <body>
 <div class="App">
     <jsp:include page="common/header.jsp" flush="true" />
-    <jsp:include page="user/signupForm.jsp" flush="true" />
+    <jsp:include page="order/orderList.jsp" flush="true" />
 </div>
 </body>
 </html>

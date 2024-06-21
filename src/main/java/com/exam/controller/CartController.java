@@ -62,7 +62,6 @@ public class CartController {
     // 장바구니 선택 항목 삭제
     @GetMapping("/deleteCartSelected")
     public String deleteCartSelected(@RequestParam("cartSelected") List<Integer> cartSelected) {
-        System.out.println(cartSelected);
         int result = cartService.deleteCartSelected(cartSelected);
         return "redirect:/cartList";
     }
@@ -70,8 +69,7 @@ public class CartController {
     // 장바구니 전체 삭제
     @GetMapping("/deleteCartAll")
     public String deleteCartOne(@AuthenticationPrincipal UserDTO userDTO) {
-        UserDTO login = (UserDTO) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        int success = cartService.deleteCartAll(login.getUser_idx());
+        int success = cartService.deleteCartAll(userDTO.getUser_idx());
         return "redirect:cartList";
     }
 

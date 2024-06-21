@@ -4,12 +4,12 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="mesg" value="${mesg}" />
 
+<div class="titleArea">
+    <h2>Login</h2>
+</div>
+<hr>
+
 <div class="container">
-
-    <div>
-        <h2 id="login_title">Login</h2>
-    </div>
-
     <form action="auth" method="post" class="row g-3 m-4">
         <div class="row mb-3">
             <label for="user_id" class="col-sm-2 col-form-label">아이디</label>

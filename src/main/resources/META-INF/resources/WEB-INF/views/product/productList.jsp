@@ -2,6 +2,12 @@
          pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
+<div class="titleArea">
+    <h2>List</h2>
+</div>
+<hr>
+
 <div class="container">
     <div class="row">
         <c:forEach var="dto" items="${productList}" >
