@@ -7,7 +7,6 @@ import java.util.Map;
 
 @Mapper
 public interface UserMapper {
-
     public UserDTO idCheck(String userid);
     public int addUser(UserDTO dto);
     public UserDTO findById(String userid);

@@ -6,17 +6,17 @@
     $(document).ready(function(){
 
         $("#up").on("click", function(){
-
-            var gAmount = Number.parseInt(  $("#gAmount").val() );
-            $("#gAmount").val(gAmount+1);
+            var gAmount = Number.parseInt( $("#cart_quantity").val() );
+            console.log(gAmount);
+            $("#cart_quantity").val(gAmount+1);
         });
 
         $("#down").on("click", function(){
-            var gAmount = Number.parseInt(  $("#gAmount").val() );
+            var gAmount = Number.parseInt(  $("#cart_quantity").val() );
             if(gAmount==1){
-                $("#gAmount").val(1);
+                $("#cart_quantity").val(1);
             }else{
-                $("#gAmount").val(gAmount-1);
+                $("#cart_quantity").val(gAmount-1);
             }
         });
 

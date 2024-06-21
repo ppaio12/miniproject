@@ -30,7 +30,7 @@
             <label for="user_pw" class="col-sm-2 col-form-label">비밀번호*</label>
             <div class="col-auto">
                 <form:password path="user_pw" id="user_pw" class="form-control"/>
-                <form:errors path="user_pw"  cssStyle="color: #dc3545"></form:errors>
+                <form:errors path="user_pw"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
@@ -39,20 +39,13 @@
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
             </div>
             <div class="col-sm-3">
-                <span id="pwdcheck" class="fs-5" style="color: black;"></span>
+                <span id="pwdcheck" class="fs-5"></span>
             </div>
         </div>
         <div class="row mb-3">
             <label for="user_name" class="col-sm-2 col-form-label">이름*</label>
             <div class="col-auto">
                 <input type="text" class="form-control" name="user_name" id="user_name" value="${login.user_name}" readonly/>
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="user_birth" class="col-sm-2 col-form-label">생년월일*</label>
-            <div class="col-auto">
-                <input type="date" class="form-control small-input" name="user_birth" id="user_birth" value="${login.user_birth}" path="user_birth" style="width: 150px; height: 30px; font-size: 12px;">
-                <form:errors path="user_birth" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">

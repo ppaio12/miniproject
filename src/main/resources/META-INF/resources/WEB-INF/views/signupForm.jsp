@@ -37,6 +37,9 @@
             font-weight: bold;
             margin: 40px 0;
         }
+        textarea {
+            resize: none;
+        }
     </style>
     <link rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css"/>
     <script src="webjars/jquery/3.7.1/dist/jquery.min.js"></script>

@@ -94,66 +94,66 @@
 
 <div class="TodoApp">
     <div class="container">
-        <div>
-            <table class="table">
-                <thead>
-                <tr>
-                    <th class="scope">상품번호</th>
-                    <th class="scope">
-                        <input type="checkbox" name="allCheck" id="allCheck" value="allCheck" onclick='selectAll(this)'>
-                    </th>
-                    <th class="scope">상품이미지</th>
-                    <th class="scope">상품정보</th>
-                    <th class="scope">판매가</th>
-                    <th class="scope">수량</th>
-                    <th class="scope">합계</th>
-                    <th class="scope">선택</th>
-                </tr>
-                </thead>
-                <tbody>
-                <c:set var="sum" value="0"/>
-                <c:forEach var="dto" items="${cartList}" varStatus="status">
-                    <c:set var="amount" value="${dto.cart_quantity}"/>
-                    <c:set var="sum" value="${dto.cartList[0].product_price * amount + sum}"/>
+        <form id="checkoutForm" action="orderForm" method="post">
+            <div>
+                <table class="table">
+                    <thead>
                     <tr>
-                        <td style="display: none">${dto.cart_idx}</td>
-                        <td>${dto.product_idx}</td>
-                        <td><input type="checkbox" name="allCheck" class="check"></td>
-                        <td><img src="images/product/${dto.cartList[0].product_image}.jpg" width="80" height="100" ></td>
-                        <td>
-                            <span>${dto.cartList[0].product_name}</span>
-                            [옵션: ${dto.cart_size}&nbsp;/&nbsp;${dto.cart_color}]
-                        </td>
-                        <td>
-                            KRW <fmt:formatNumber value="${dto.cartList[0].product_price}" pattern="#,###"/>
-                        </td>
-                        <td>${amount}</td>
-                        <td>
-                            KRW <fmt:formatNumber value="${dto.cartList[0].product_price * amount}" pattern="#,###"/>
-                        </td>
-                        <td>
-                            <div class="btn btn-light btn-outline-dark  deleteCartOne">주문하기</div>
-                            <div class="btn btn-light btn-outline-dark  deleteCartOne">삭제</div>
+                        <th class="scope">상품번호</th>
+                        <th class="scope">
+                            <input type="checkbox" name="allCheck" id="allCheck" value="allCheck" onclick='selectAll(this)'>
+                        </th>
+                        <th class="scope">상품이미지</th>
+                        <th class="scope">상품정보</th>
+                        <th class="scope">판매가</th>
+                        <th class="scope">수량</th>
+                        <th class="scope">합계</th>
+                        <th class="scope">선택</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:set var="sum" value="0"/>
+                    <c:forEach var="dto" items="${cartList}" varStatus="status">
+                        <c:set var="amount" value="${dto.cart_quantity}"/>
+                        <c:set var="sum" value="${dto.cartList[0].product_price * amount + sum}"/>
+                        <tr>
+                            <td style="display: none">${dto.cart_idx}</td>
+                            <td>${dto.product_idx}</td>
+                            <td><input type="checkbox" name="allCheck" class="check"></td>
+                            <td><img src="images/product/${dto.cartList[0].product_image}.jpg" width="80" height="100" ></td>
+                            <td>
+                                <span>${dto.cartList[0].product_name}</span><br>
+                                [옵션: ${dto.cart_size}&nbsp;/&nbsp;${dto.cart_color}]
+                            </td>
+                            <td>
+                                KRW <fmt:formatNumber value="${dto.cartList[0].product_price}" pattern="#,###"/>
+                            </td>
+                            <td>${amount}</td>
+                            <td>
+                                KRW <fmt:formatNumber value="${dto.cartList[0].product_price * amount}" pattern="#,###"/>
+                            </td>
+                            <td>
+                                <div class="btn btn-light btn-outline-dark orderOne">주문하기</div>
+                                <div class="btn btn-light btn-outline-dark  deleteCartOne">삭제</div>
+                            </td>
+                        </tr>
+                    </c:forEach>
+                    <tr>
+                        <td>[기본배송]</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td colspan="3" class="totalPrice">
+                            합계 : &nbsp;KRW <fmt:formatNumber value="${sum}" pattern="#,###"/>
                         </td>
                     </tr>
-                </c:forEach>
-                <tr>
-                    <td>[기본배송]</td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td colspan="3" class="totalPrice">
-                        합계 : &nbsp;KRW <fmt:formatNumber value="${sum}" pattern="#,###"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-<%--        <div class="btn">--%>
-                <div class="btn btn-light btn-outline-dark deleteCartSelected">선택상품 삭제</div>
-                <div class="btn btn-light btn-outline-dark deleteCartAll">전체삭제</div>
-                <div class="btn btn-light btn-outline-dark orderCartAll">전체주문</div>
-<%--        </div>--%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="btn btn-light btn-outline-dark deleteCartSelected">선택상품 삭제</div>
+            <div class="btn btn-light btn-outline-dark deleteCartAll">전체삭제</div>
+            <button type="submit" class="btn btn-light btn-outline-dark orderCartAll">전체주문</button>
+        </form>
     </div>
 </div>
