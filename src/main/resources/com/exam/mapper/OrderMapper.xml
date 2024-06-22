@@ -5,10 +5,10 @@
 
 <mapper namespace="com.exam.mapper.OrderMapper">
 
-    <insert id="addOrder" parameterType="OrderDTO">
-        insert into order(user_idx, product_idx, order_quantity, order_totalPrice, order_comment, order_date)
-        values(#{user_idx}, #{product_idx}, #{order_quantity}, #{order_totalPrice}, #{order_comment}, #{order_date})
-    </insert>
+<!--    <insert id="addOrder" parameterType="OrderDTO">-->
+<!--        insert into order(user_idx, product_idx, order_quantity, order_totalPrice, order_comment, order_date)-->
+<!--        values(#{user_idx}, #{product_idx}, #{order_quantity}, #{order_totalPrice}, #{order_comment}, #{order_date})-->
+<!--    </insert>-->
 
 
 
