@@ -9,5 +9,5 @@ public interface UserService {
     public UserDTO findById(String userid);
     public UserDTO myPage(String userid);
     public int updateUser(UserDTO dto);
-
+    public int updateUserPoint(UserDTO dto);
 }

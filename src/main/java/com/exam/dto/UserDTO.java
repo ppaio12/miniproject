@@ -25,6 +25,7 @@ public class UserDTO {
     @NotBlank
     private String user_pw;
 
+    @NotBlank(message = "이름을 입력해주세요")
     @NotBlank
     private String user_name;
 

@@ -56,7 +56,7 @@
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">
                         <li class="nav-item">
-                            <a class="nav-link" href="myPage">mypage</a>
+                            <a class="nav-link" href="myPageMain">mypage</a>
                         </li>
                     </sec:authorize>
                     <sec:authorize access="isAuthenticated()">

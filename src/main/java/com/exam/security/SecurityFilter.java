@@ -29,6 +29,7 @@ public class SecurityFilter {
 
         http.logout()
                 .logoutUrl("/logout")
+//                .logoutUrl("/myPageAction")
                 .logoutSuccessUrl("/main");
 
         return http.build();

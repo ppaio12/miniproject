@@ -5,17 +5,19 @@
 <script type="text/javascript">
     // 비밀번호 일치 확인
     $(document).ready(function() {
-        $("#user_pw2").on("keyup", function() {
+
+        $("#user_pw2").on("keyup", function () {
             var user_pw = $("#user_pw").val();
             var user_pw2 = $("#user_pw2").val();
             var mesg = "비밀번호가 일치합니다";
 
-            if(user_pw != user_pw2) {
+            if (user_pw != user_pw2) {
                 mesg = "비밀번호가 일치하지 않습니다";
             }
             $("#pwdcheck").text(mesg);
         });
     });
+
 </script>
 
 <div class="titleArea">
@@ -24,7 +26,7 @@
 <hr>
 
 <div class="container">
-    <form:form class="row g-3 m-4" modelAttribute="login" method="post">
+    <form:form class="row g-3 m-4" modelAttribute="login" method="post" action="myPageAction">
         <div class="row mb-3">
             <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
             <div class="col-auto">
@@ -34,8 +36,8 @@
         <div class="row mb-3">
             <label for="user_pw" class="col-sm-2 col-form-label">비밀번호*</label>
             <div class="col-auto">
-                <form:password path="user_pw" id="user_pw" class="form-control"/>
-                <form:errors path="user_pw"></form:errors>
+                <form:input type="password" class="form-control" path="user_pw" name="user_pw" id="user_pw"/>
+                <form:errors path="user_pw" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
         <div class="row mb-3">
@@ -57,7 +59,7 @@
             <label for="user_phone" class="col-sm-2 col-form-label">전화번호*</label>
             <div class="col-auto">
                 <label for="user_phone" class="visually-hidden">전화번호</label>
-                <input type="text" name="user_phone" class="form-control" id="user_phone" path="user_phone" value="${login.user_phone}">
+                <form:input type="text" class="form-control" path="user_phone"/>
                 <form:errors path="user_phone" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
@@ -65,7 +67,7 @@
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
-                <input type="email" name="user_email" class="form-control" id="user_email" value="${login.user_email}" placeholder="직접입력">
+                <form:input type="email" path="user_email" class="form-control" placeholder="직접입력"/>
                 <form:errors path="user_email" cssStyle="color: #dc3545"></form:errors>
             </div>
         </div>
@@ -73,7 +75,8 @@
         <div class="row mb-3">
             <div class="col-auto">
                 <label for="sample4_postcode" class="visually-hidden">post</label>
-                <input type="text" name="user_post" class="form-control" id="sample4_postcode" value="${login.user_post}" placeholder="우편번호">
+                <form:input type="text" path="user_post" class="form-control" id="sample4_postcode" placeholder="우편번호"/>
+                <form:errors path="user_post" cssStyle="color: #dc3545"></form:errors>
             </div>
             <div class="col-auto">
                 <button type="button" class="btn btn-light btn-outline-dark mary mb-3" onclick="sample4_execDaumPostcode()">우편번호 찾기</button>
@@ -82,16 +85,18 @@
         <div class="row mb-3">
             <div class="col-sm-5">
                 <label for="sample4_roadAddress" class="visually-hidden">도로명주소</label>
-                <input type="text" name="user_addr1" class="form-control" id="sample4_roadAddress" value="${login.user_addr1}" placeholder="도로명주소">
+                <form:input type="text" path="user_addr1" class="form-control" id="sample4_roadAddress" placeholder="도로명주소"/>
+                <form:errors path="user_addr1" cssStyle="color: #dc3545"></form:errors>
             </div>
             <div class="col-sm-5">
                 <label for="sample4_jibunAddress" class="visually-hidden">지번주소</label>
-                <input type="text" name="user_addr2" class="form-control" id="sample4_jibunAddress" value="${login.user_addr2}" placeholder="지번주소">
+                <form:input type="text" path="user_addr2" class="form-control" id="sample4_jibunAddress" placeholder="지번주소"/>
+                <form:errors path="user_addr2" cssStyle="color: #dc3545"></form:errors>
                 <span id="guide" style="color:#999"></span>
             </div>
         </div>
         <div class="col-12">
-            <button type="submit" class="btn btn-light btn-outline-dark mary">수정하기</button>
+            <button type="submit" class="btn btn-light btn-outline-dark mary" id="submitCheck">수정하기</button>
             <button type="reset" class="btn btn-light btn-outline-dark mary" onclick="history.back()">취소</button>
         </div>
     </form:form>

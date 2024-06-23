@@ -20,6 +20,15 @@
             }
         });
 
+        $("#addCart").click(function() {
+            if (!$("#Color").val() || !$("#Size").val()) {
+                alert("옵션을 선택해주세요.");
+
+                return false;
+            }else {
+                $("#prdtFm").submit();
+            }
+        });
     });
 </script>
 
@@ -29,7 +38,7 @@
 <hr>
 
 <div class="container">
-    <form class="row g-3 m-4" action="cartAdd" method="post">
+    <form class="row g-3 m-4" id="prdtFm" action="cartAdd" method="post">
         <input type="hidden" name="product_idx" value="${product.product_idx}">
         <div class="row">
             <div class="card border border-0" style="width:33rem;">
@@ -53,8 +62,8 @@
                                 <th scope="row" class="fw-light option_menu">Color</th>
                                 <td>
                                     <select class="select_change form-select-sm border-light-subtle fw-light" name="cart_color" id="Color">
-                                        <option value="*" selected="">- [필수] 옵션을 선택해 주세요 -</option>
-                                        <option value="**" disabled="">-------------------</option>
+                                        <option value="" selected="">- [필수] 옵션을 선택해 주세요 -</option>
+                                        <option value="" disabled="">-------------------</option>
                                         <option value="white">white</option>
                                         <option value="gray">gray</option>
                                         <option value="navy">navy</option>
@@ -66,8 +75,8 @@
                                 <th scope="row" class="fw-light option_menu">Size</th>
                                 <td>
                                     <select class="select_change form-select-sm border-light-subtle fw-light" name="cart_size" id="Size">
-                                        <option value="*" selected="">- [필수] 옵션을 선택해 주세요 -</option>
-                                        <option value="**" disabled="">-------------------</option>
+                                        <option value="" selected="">- [필수] 옵션을 선택해 주세요 -</option>
+                                        <option value="" disabled="">-------------------</option>
                                         <option value="L">L</option>
                                         <option value="M">M</option>
                                         <option value="S">S</option>
@@ -85,7 +94,7 @@
                         </tbody>
                     </table>
                     <a href="#" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">구매</a>
-                    <button type="submit" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">장바구니</button>
+                    <button type="button" id="addCart" class="btn btn-light btn-outline-dark  btn-outline-secondary mt-3">장바구니</button>
                 </div>
             </div>
         </div>

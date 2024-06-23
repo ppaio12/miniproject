@@ -25,13 +25,13 @@ public class OrderController {
         this.cartService = cartService;
     }
 
-    // 결제 페이지 요청
+    // 주문 페이지 요청
     @PostMapping("/orderForm")
     public String orderProduct(@AuthenticationPrincipal UserDTO userDTO, ModelMap model) {
         return "redirect:orderForm";
     }
 
-    // 결제 페이지
+    // 주문 페이지
     @GetMapping("/orderForm")
     public String orderForm(@AuthenticationPrincipal UserDTO userDTO, ModelMap model) {
         model.addAttribute("userDTO", userDTO);
@@ -42,5 +42,7 @@ public class OrderController {
 
         return "orderForm";
     }
+
+
 
 }

@@ -47,7 +47,6 @@
                 cartSelected.push(parseInt(cartIdx));
             });
 
-            // AJAX 요청
             $.ajax({
                 method: "GET",
                 url: "/shoppingMall/deleteCartSelected",

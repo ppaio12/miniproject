@@ -4,6 +4,10 @@ import com.exam.dto.OrderInfoDTO;
 import com.exam.mapper.OrderMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 @Service
 public class OrderServiceImpl implements OrderService{
 
@@ -14,7 +18,27 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
-    public int addOrder(OrderInfoDTO orderInfoDTO) {
+    public int addOrder(List<OrderInfoDTO> orderInfoDTO) {
         return orderMapper.addOrder(orderInfoDTO);
     }
+
+    @Override
+    public int getMaxOrderIdx() {
+        return orderMapper.getMaxOrderIdx();
+    }
+
+    @Override
+    public Map<String, Object> getOrderUserInfo(int orderIdx) {
+        Map<String, Object> resultMap = orderMapper.findOrderUserInfoOne(orderIdx);
+
+        return resultMap;
+    }
+
+    @Override
+    public List<Map<String, Object>> getOrderProductInfo(int orderIdx) {
+        List<Map<String, Object>> resultList = orderMapper.findOrderProductByCart(orderIdx);
+
+        return resultList;
+    }
+
 }

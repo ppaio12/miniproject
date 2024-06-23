@@ -52,7 +52,7 @@
 </script>
 
 <div class="titleArea">
-    <h2>Sign up</h2>
+    <h2></h2>
 </div>
 <hr>
 

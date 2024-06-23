@@ -39,5 +39,10 @@ public class UserServiceImpl implements UserService{
         return userMapper.updateUser(dto);
     }
 
+    @Override
+    public int updateUserPoint(UserDTO dto) {
+        return userMapper.updateUserPoint(dto);
+    }
+
 
 }

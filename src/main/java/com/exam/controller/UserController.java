@@ -21,6 +21,7 @@ public class UserController {
     Logger logger = LoggerFactory.getLogger(getClass());
 
     UserService userService;
+
     public UserController(UserService userService) {
         this.userService = userService;
     }
@@ -59,6 +60,12 @@ public class UserController {
         return "redirect:main";
     }
 
+    // 마이페이지 메인
+    @GetMapping("/myPageMain")
+    public String myPageMain() {
+        return "myPageMain";
+    }
+
     // 마이페이지
     @GetMapping("/myPage")
     public String myPageForm(ModelMap model, @AuthenticationPrincipal UserDTO userDTO) {
@@ -67,7 +74,7 @@ public class UserController {
     }
 
     // 마이페이지 수정 요청
-    @PostMapping("/myPage")
+    @PostMapping("/myPageAction")
     public String myPage(@Valid @ModelAttribute("login") UserDTO login, BindingResult result, ModelMap model) {
 
         if (result.hasErrors()) {
@@ -84,8 +91,15 @@ public class UserController {
 
         int n = userService.updateUser(login);
 
-        return "redirect:main";
+
+        return "redirect:logout";
     }
 
+    // 주문내역
+    @GetMapping("/orderList")
+    public String orderList(@AuthenticationPrincipal UserDTO userDTO) {
 
+
+        return "orderList";
+    }
 }

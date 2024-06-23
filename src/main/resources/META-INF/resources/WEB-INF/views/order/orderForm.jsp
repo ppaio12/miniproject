@@ -32,21 +32,21 @@
             }
         });
 
-        // 결제 요청
-        $("#submitCheck").on("submit", function() {
-            // user정보, producdt정보, order_totalPrice, order_comment
-            $.ajax({
-                method: "POST",
-                url: "/shoppingMall/orderPayment",
-                dataType: "text",
-                success: function (data, status, xhr) {
-                    console.log(data);
-                },
-                error: function(xhr, status, error) {
-                    console.log(error);
-                }
-            })
-        })
+        // // 결제 요청
+        // $("#submitCheck").on("submit", function() {
+        //     // user정보, producdt정보, order_totalPrice, order_comment
+        //     $.ajax({
+        //         method: "POST",
+        //         url: "/shoppingMall/orderForm",
+        //         dataType: "text",
+        //         success: function (data, status, xhr) {
+        //             console.log(data);
+        //         },
+        //         error: function(xhr, status, error) {
+        //             console.log(error);
+        //         }
+        //     })
+        // })
 
 
 
@@ -170,7 +170,13 @@
             </table>
             <%--            회원정보란--%>
             <div>
-                <form id="paymentForm" action="payment" method="post">
+                <form id="paymentForm" action="orderAdd" method="post">
+                    <c:forEach items="${cartList}" var="cart" varStatus="stat">
+                        <input type="hidden" name="product_idx" value="${cart.product_idx}">
+                        <input type="hidden" name="cart_quantity" value="${cart.cart_quantity}">
+                        <input type="hidden" name="cart_color" value="${cart.cart_color}">
+                        <input type="hidden" name="cart_size" value="${cart.cart_size}">
+                    </c:forEach>
                     <table class="table">
                         <thead>
                         <tr>
@@ -182,19 +188,19 @@
                         <tr>
                             <td>받으시는 분</td>
                             <td>
-                                <input type="text" class="form-control" id="user_name" value="${userDTO.user_name}">
+                                <input type="text" class="form-control" id="user_name" name="user_name" value="${userDTO.user_name}">
                             </td>
                         </tr>
                         <tr>
                             <td>전화번호</td>
                             <td>
-                                <input type="text" class="form-control" id="user_phone" value="${userDTO.user_phone}">
+                                <input type="text" class="form-control" id="user_phone" name="user_phone" value="${userDTO.user_phone}">
                             </td>
                         </tr>
                         <tr>
                             <td>이메일</td>
                             <td>
-                                <input type="email" id="user_email" class="form-control" placeholder="직접입력"
+                                <input type="email" id="user_email" name="user_email" class="form-control" placeholder="직접입력"
                                        value="${userDTO.user_email}">
                             </td>
                         </tr>
@@ -208,7 +214,7 @@
                                         </button>
                                     </div>
                                     <div class="col">
-                                        <input type="text" id="sample4_postcode" class="form-control" placeholder="우편번호"
+                                        <input type="text" id="sample4_postcode" name="user_post" class="form-control" placeholder="우편번호"
                                                value="${userDTO.user_post}">
                                     </div>
                                 </div>
@@ -217,14 +223,14 @@
                         <tr>
                             <td>도로명주소</td>
                             <td>
-                                <input type="text" id="sample4_roadAddress" class="form-control" placeholder="도로명주소"
+                                <input type="text" id="sample4_roadAddress" name="user_addr1" class="form-control" placeholder="도로명주소"
                                        value="${userDTO.user_addr1}">
                             </td>
                         </tr>
                         <tr>
                             <td>지번주소</td>
                             <td>
-                                <input type="text" id="sample4_jibunAddress" class="form-control" placeholder="지번주소"
+                                <input type="text" id="sample4_jibunAddress" name="user_addr2" class="form-control" placeholder="지번주소"
                                        value="${userDTO.user_addr2}">
                                 <span id="guide" style="color:#999"></span>
                             </td>
@@ -232,7 +238,7 @@
                         <tr>
                             <td>배송메시지</td>
                             <td>
-                                <textarea class="form-control" id="user_comment">배송 전 미리 연락바랍니다.</textarea>
+                                <textarea class="form-control" id="order_comment" name="order_comment">배송 전 미리 연락바랍니다.</textarea>
                             </td>
                         </tr>
                         </tbody>

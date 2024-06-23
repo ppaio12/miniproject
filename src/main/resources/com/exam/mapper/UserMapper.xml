@@ -32,6 +32,11 @@
         where user_id = #{user_id}
     </update>
 
+<!--    포인트 적립-->
+    <update id="updateUserPoint" parameterType="UserDTO">
+        update user set user_point = (user_point + #{user_point}) where user_idx = #{user_idx}
+    </update>
+
 
 
 </mapper>
