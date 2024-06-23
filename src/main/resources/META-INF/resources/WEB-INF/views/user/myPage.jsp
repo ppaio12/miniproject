@@ -28,12 +28,14 @@
 <div class="container">
     <form:form class="row g-3 m-4" modelAttribute="login" method="post" action="myPageAction">
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_id" class="col-sm-2 col-form-label">아이디*</label>
             <div class="col-auto">
                 <input type="text" class="form-control" name="user_id" id="user_id" value="${login.user_id}" readonly/>
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_pw" class="col-sm-2 col-form-label">비밀번호*</label>
             <div class="col-auto">
                 <form:input type="password" class="form-control" path="user_pw" name="user_pw" id="user_pw"/>
@@ -41,6 +43,7 @@
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_pw2" class="col-sm-2 col-form-label">비밀번호 확인*</label>
             <div class="col-auto">
                 <input type="password" class="form-control" name="user_pw2" id="user_pw2"/>
@@ -50,12 +53,14 @@
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_name" class="col-sm-2 col-form-label">이름*</label>
             <div class="col-auto">
                 <input type="text" class="form-control" name="user_name" id="user_name" value="${login.user_name}" readonly/>
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_phone" class="col-sm-2 col-form-label">전화번호*</label>
             <div class="col-auto">
                 <label for="user_phone" class="visually-hidden">전화번호</label>
@@ -64,6 +69,7 @@
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <label for="user_email" class="col-sm-2 col-form-label">이메일*</label>
             <div class="col-auto">
                 <label for="user_email" class="visually-hidden">이메일</label>
@@ -73,6 +79,7 @@
         </div>
         <hr>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <div class="col-auto">
                 <label for="sample4_postcode" class="visually-hidden">post</label>
                 <form:input type="text" path="user_post" class="form-control" id="sample4_postcode" placeholder="우편번호"/>
@@ -83,11 +90,15 @@
             </div>
         </div>
         <div class="row mb-3">
+			<div class="col-3"></div>
             <div class="col-sm-5">
                 <label for="sample4_roadAddress" class="visually-hidden">도로명주소</label>
                 <form:input type="text" path="user_addr1" class="form-control" id="sample4_roadAddress" placeholder="도로명주소"/>
                 <form:errors path="user_addr1" cssStyle="color: #dc3545"></form:errors>
             </div>
+			</div>
+			<div class="row mb-3">
+			<div class="col-3"></div>
             <div class="col-sm-5">
                 <label for="sample4_jibunAddress" class="visually-hidden">지번주소</label>
                 <form:input type="text" path="user_addr2" class="form-control" id="sample4_jibunAddress" placeholder="지번주소"/>

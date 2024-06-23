@@ -86,7 +86,7 @@
                             <tr class="table-light">
                                 <th scope="row" class="fw-light option_menu">주문수량</th>
                                 <td>
-                                    <input type="text" name="cart_quantity" value="1" id="cart_quantity">
+                                    <input type="text" name="cart_quantity" value="1" id="cart_quantity" class="quantityintput">
                                     <img src="images/up.PNG" id="up">
                                     <img src="images/down.PNG" id="down">
                                 </td>
