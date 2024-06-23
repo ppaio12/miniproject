@@ -14,6 +14,8 @@ import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class UserController {
@@ -62,7 +64,8 @@ public class UserController {
 
     // 마이페이지 메인
     @GetMapping("/myPageMain")
-    public String myPageMain() {
+    public String myPageMain(ModelMap model, @AuthenticationPrincipal UserDTO userDTO) {
+        model.addAttribute("login", userDTO);
         return "myPageMain";
     }
 
@@ -95,11 +98,5 @@ public class UserController {
         return "redirect:logout";
     }
 
-    // 주문내역
-    @GetMapping("/orderList")
-    public String orderList(@AuthenticationPrincipal UserDTO userDTO) {
 
-
-        return "orderList";
-    }
 }

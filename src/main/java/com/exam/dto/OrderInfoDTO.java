@@ -14,6 +14,7 @@ import java.util.Date;
 public class OrderInfoDTO {
     private int order_idx;
     private int order_idx_sn;
+    private int user_idx;
     private String user_name;
     private String user_email;
     private String user_phone;
@@ -32,6 +33,7 @@ public class OrderInfoDTO {
 
         returnDto.setOrder_idx(this.order_idx);
         returnDto.setOrder_idx_sn(this.order_idx_sn);
+        returnDto.setUser_idx(this.user_idx);
         returnDto.setUser_name(this.user_name);
         returnDto.setUser_email(this.user_email);
         returnDto.setUser_phone(this.user_phone);

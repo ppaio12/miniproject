@@ -63,7 +63,7 @@
             KRW 10,000 이상 구매시 1%을 적립 받으실 수 있습니다.
         </div>
         <div>가용적립금 : <strong>
-            <fmt:formatNumber value="${point}" pattern="#,###"/>
+            <fmt:formatNumber value="${point}" pattern="#,###" />
         </strong> 원
         </div>
     </div>
