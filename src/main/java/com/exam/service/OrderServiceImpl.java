@@ -35,8 +35,22 @@ public class OrderServiceImpl implements OrderService{
     }
 
     @Override
+    public Map<String, Object> getOrderUserInfoMany(int userIdx) {
+        Map<String, Object> resultMap = orderMapper.findOrderUserInfoOne(userIdx);
+
+        return resultMap;
+    }
+
+    @Override
     public List<Map<String, Object>> getOrderProductInfo(int orderIdx) {
         List<Map<String, Object>> resultList = orderMapper.findOrderProductByCart(orderIdx);
+
+        return resultList;
+    }
+
+    @Override
+    public List<Map<String, Object>> getOrderProductInfoMany(int userIdx) {
+        List<Map<String, Object>> resultList = orderMapper.findOrderProductByCart(userIdx);
 
         return resultList;
     }

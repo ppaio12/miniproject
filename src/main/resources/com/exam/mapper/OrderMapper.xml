@@ -8,6 +8,7 @@
     <select id="findOrderUserInfoOne" parameterType="Integer" resultType="Map">
         select
             od.order_idx,
+            od.user_idx,
             od.user_name,
             od.user_phone,
             od.user_post,
@@ -17,6 +18,22 @@
             od.order_date
         from orderinfo od
         where od.order_idx = #{order_idx}
+        limit 1;
+    </select>
+
+    <select id="findOrderUserInfoMany" parameterType="Integer" resultType="Map">
+        select
+        od.order_idx,
+        od.user_idx,
+        od.user_name,
+        od.user_phone,
+        od.user_post,
+        od.user_addr1,
+        od.user_addr2,
+        od.order_comment,
+        od.order_date
+        from orderinfo od
+        where od.user_idx = #{user_idx}
         limit 1;
     </select>
 
@@ -36,10 +53,27 @@
         where od.order_idx = #{order_idx};
     </select>
 
+    <select id="findOrderProductByCartMany" parameterType="Integer" resultType="Map">
+        select
+        od.order_idx,
+        od.order_idx_sn,
+        pd.product_idx,
+        pd.product_name,
+        pd.product_image,
+        pd.product_price,
+        od.cart_quantity,
+        od.cart_color,
+        od.cart_size
+        from orderinfo od
+        left join product pd on pd.product_idx = od.product_idx
+        where od.user_idx = #{user_idx};
+    </select>
+
     <insert id="addOrder" parameterType="java.util.List">
         INSERT INTO orderinfo(
             order_idx,
             order_idx_sn,
+            user_idx,
             user_name,
             user_email,
             user_phone,
@@ -57,6 +91,7 @@
             (
                 #{order.order_idx},
                 #{order.order_idx_sn},
+                #{order.user_idx},
                 #{order.user_name},
                 #{order.user_email},
                 #{order.user_phone},

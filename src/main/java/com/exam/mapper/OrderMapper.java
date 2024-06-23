@@ -12,5 +12,7 @@ public interface OrderMapper {
     int addOrder(List<OrderInfoDTO> orderInfoDTO);
     int getMaxOrderIdx();
     Map<String, Object> findOrderUserInfoOne(int orderIdx);
+    Map<String, Object> findOrderUserInfoMany(int userIdx);
     List<Map<String, Object>> findOrderProductByCart(int orderIdx);
+    List<Map<String, Object>> findOrderProductByCartMany(int userIdx);
 }

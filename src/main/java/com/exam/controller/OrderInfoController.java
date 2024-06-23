@@ -47,6 +47,7 @@ public class OrderInfoController {
         int total = 0;
         for(int i = 1; i <= product_idx.size(); i++) {
             OrderInfoDTO pushDto = orderInfoDTO.clone();
+            pushDto.setUser_idx(userDTO.getUser_idx());
             pushDto.setOrder_idx(orderIdx);
             pushDto.setOrder_idx_sn(i);
             pushDto.setProduct_idx(product_idx.get(i-1));
@@ -74,7 +75,7 @@ public class OrderInfoController {
         return "redirect:orderInfo?orderId=" + orderIdx;
     }
 
-
+    // 주문 확인
     @GetMapping("/orderInfo")
     public String OrderInfoform(@AuthenticationPrincipal UserDTO userDTO,
                                 @RequestParam(name = "orderId", required = true) String orderId,
@@ -95,6 +96,23 @@ public class OrderInfoController {
         model.addAttribute("point", point);
 
         return "orderInfo";
+    }
+
+    // 주문내역
+    @GetMapping("/orderList")
+    public String orderList(@AuthenticationPrincipal UserDTO userDTO, ModelMap model) {
+
+        int userIdx = userDTO.getUser_idx();
+
+        Map<String, Object> receiverUserInfoMany = orderService.getOrderUserInfoMany(userIdx);
+        List<Map<String, Object>> orderProductInfoMany = orderService.getOrderProductInfoMany(userIdx);
+
+        model.addAttribute("receiverUserInfoMany", receiverUserInfoMany);
+        model.addAttribute("orderProductInfoMany", orderProductInfoMany);
+
+        System.out.println(orderProductInfoMany.toString());
+
+        return "orderList";
     }
 
 }
