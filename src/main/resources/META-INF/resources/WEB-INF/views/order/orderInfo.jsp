@@ -66,7 +66,7 @@
                         </td>
                         <td>${dto.cart_quantity}</td>
                         <td>
-                            KRW <fmt:formatNumber value="${totalPrice}"
+                            KRW <fmt:formatNumber value="${dto.product_price * dto.cart_quantity}"
                                                   pattern="#,###"/>
                         </td>
                     </tr>

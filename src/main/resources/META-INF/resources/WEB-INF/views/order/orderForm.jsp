@@ -29,6 +29,7 @@
             else {
                 $("#totalUsePoint").text('-KRW ' + (inputPoint.toLocaleString('ko-KR')));
                 $("#totalDiscountSum").text('KRW ' + (${sum} -inputPoint).toLocaleString('ko-KR'));
+                $("#usePoint").val(parseInt($("#inputPoint").val()));
             }
         });
 
@@ -154,7 +155,7 @@
             <%--            회원정보란--%>
             <div>
                 <form id="paymentForm" action="orderAdd" method="post">
-                    <input type="hidden" name="usePoint" value="${point}">
+                    <input type="hidden" id="usePoint" name="usePoint" value="${0}">
                     <c:forEach items="${cartList}" var="cart" varStatus="stat">
                         <input type="hidden" name="product_idx" value="${cart.product_idx}">
                         <input type="hidden" name="cart_quantity" value="${cart.cart_quantity}">

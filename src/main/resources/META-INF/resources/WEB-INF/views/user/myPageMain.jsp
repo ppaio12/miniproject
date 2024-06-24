@@ -25,7 +25,7 @@
 <hr>
 
 <div class="container">
-    <div>가용적립금 :
+    <div>적립금 :
         <strong>
             <fmt:formatNumber value="${login.user_point}" pattern="#,###"/>
         </strong> 원

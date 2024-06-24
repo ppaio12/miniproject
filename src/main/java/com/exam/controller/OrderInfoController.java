@@ -43,8 +43,10 @@ public class OrderInfoController {
                            OrderInfoDTO orderInfoDTO) {
 
         List<OrderInfoDTO> insertDto = new ArrayList<>();
+
         int orderIdx = orderService.getMaxOrderIdx();
         int total = 0;
+
         for(int i = 1; i <= product_idx.size(); i++) {
             OrderInfoDTO pushDto = orderInfoDTO.clone();
             pushDto.setUser_idx(userDTO.getUser_idx());
@@ -61,14 +63,15 @@ public class OrderInfoController {
 //            System.out.println(pushDto.toString());
         }
 
-        // 총 금액(적립금 사용 후)
-
         int result = orderService.addOrder(insertDto);
 
         if(result > 0) {
             // 적립금 추가
-            int point = (int)Math.round(total * 0.05);      // 적립될 포인트
-            point = (userDTO.getUser_point() + point) - usePoint;          // (현재 포인트 + 적립될 포인트) - 사용한 포인트
+            int pointAdd = (int)Math.round(total * 0.05);      // 적립될 포인트
+
+            int point = userDTO.getUser_point();
+            point = (point + pointAdd) - usePoint;          // (현재 포인트 + 적립될 포인트) - 사용한 포인트
+
             userDTO.setUser_point(point);
             userService.updateUserPoint(userDTO);
 
@@ -115,8 +118,6 @@ public class OrderInfoController {
 
         model.addAttribute("receiverUserInfoMany", receiverUserInfoMany);
         model.addAttribute("orderProductInfoMany", orderProductInfoMany);
-
-        System.out.println(orderProductInfoMany.toString());
 
         return "orderList";
     }
