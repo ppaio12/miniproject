@@ -31,8 +31,8 @@
         </strong> 원
         <br>
     </div>
-    <div>
-        <button id="mypageForm">회원 정보 수정</button>
-        <button id="orderList">주문 내역</button>
+    <div class="buttonGroup">
+        <button id="mypageForm" class="btn btn-light btn-outline-dark">회원 정보 수정</button>
+        <button id="orderList" class="btn btn-light btn-outline-dark">주문 내역</button>
     </div>
 </div>

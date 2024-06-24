@@ -32,23 +32,6 @@
             }
         });
 
-        // // 결제 요청
-        // $("#submitCheck").on("submit", function() {
-        //     // user정보, producdt정보, order_totalPrice, order_comment
-        //     $.ajax({
-        //         method: "POST",
-        //         url: "/shoppingMall/orderForm",
-        //         dataType: "text",
-        //         success: function (data, status, xhr) {
-        //             console.log(data);
-        //         },
-        //         error: function(xhr, status, error) {
-        //             console.log(error);
-        //         }
-        //     })
-        // })
-
-
 
     });
 </script>
@@ -149,7 +132,7 @@
                         적립금
                     </th>
                     <th>
-                        <input type="text" id="inputPoint" class="form-control-sm" style="width: 150px; font-size: 12px;" > 원
+                        <input type="text" id="inputPoint" name="usePoint" class="form-control-sm" style="width: 150px; font-size: 12px;" > 원
                         (총 사용 가능 적립금: <fmt:formatNumber value="${point}" pattern="#,###"/>원)
                         <br><span>- 적립금은 최소 0원 이상일 때 사용 가능합니다</span>
                     </th>
@@ -171,6 +154,7 @@
             <%--            회원정보란--%>
             <div>
                 <form id="paymentForm" action="orderAdd" method="post">
+                    <input type="hidden" name="usePoint" value="${point}">
                     <c:forEach items="${cartList}" var="cart" varStatus="stat">
                         <input type="hidden" name="product_idx" value="${cart.product_idx}">
                         <input type="hidden" name="cart_quantity" value="${cart.cart_quantity}">

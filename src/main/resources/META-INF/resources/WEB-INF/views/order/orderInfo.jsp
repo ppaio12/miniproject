@@ -66,7 +66,7 @@
                         </td>
                         <td>${dto.cart_quantity}</td>
                         <td>
-                            KRW <fmt:formatNumber value="${dto.product_price * dto.cart_quantity}"
+                            KRW <fmt:formatNumber value="${totalPrice}"
                                                   pattern="#,###"/>
                         </td>
                     </tr>
@@ -78,7 +78,7 @@
                     <td></td>
                     <td></td>
                     <td colspan="3" class="totalPrice">
-                        합계 : &nbsp;KRW <fmt:formatNumber value="${sum}" pattern="#,###"/>
+                        결제금액 : &nbsp;KRW <fmt:formatNumber value="${sum}" pattern="#,###"/>
                     </td>
                 </tr>
                 </tbody>
@@ -86,5 +86,3 @@
         </div>
     </div>
 </div>
-
-

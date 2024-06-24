@@ -3,6 +3,7 @@ package com.exam.controller;
 import com.exam.dto.OrderInfoDTO;
 import com.exam.dto.ProductDTO;
 import com.exam.dto.UserDTO;
+import com.exam.service.CartService;
 import com.exam.service.OrderService;
 import com.exam.service.ProductService;
 import com.exam.service.UserService;
@@ -10,14 +11,10 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.validation.Valid;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -27,11 +24,13 @@ public class OrderInfoController {
     OrderService orderService;
     UserService userService;
     ProductService productService;
+    CartService cartService;
 
-    public OrderInfoController(UserService userService, OrderService orderService, ProductService productService) {
-        this.userService = userService;
+    public OrderInfoController(OrderService orderService, UserService userService, ProductService productService, CartService cartService) {
         this.orderService = orderService;
+        this.userService = userService;
         this.productService = productService;
+        this.cartService = cartService;
     }
 
     @PostMapping("/orderAdd")
@@ -40,6 +39,7 @@ public class OrderInfoController {
                            @RequestParam List<Integer> cart_quantity,
                            @RequestParam List<String> cart_color,
                            @RequestParam List<String> cart_size,
+                           @RequestParam int usePoint,
                            OrderInfoDTO orderInfoDTO) {
 
         List<OrderInfoDTO> insertDto = new ArrayList<>();
@@ -55,20 +55,25 @@ public class OrderInfoController {
             pushDto.setCart_size(cart_size.get(i-1));
             pushDto.setCart_color(cart_color.get(i-1));
 
-            insertDto.add(pushDto);
-
             ProductDTO product = productService.productDetail(product_idx.get(i-1));
             total += product.getProduct_price() * cart_quantity.get(i-1);
+            insertDto.add(pushDto);
             System.out.println(pushDto.toString());
         }
+
+        // 총 금액(적립금 사용 후)
 
         int result = orderService.addOrder(insertDto);
 
         if(result > 0) {
-            int point = (int)Math.round(total * 0.05);
+            // 적립금 추가
+            int point = (int)Math.round(total * 0.05);      // 적립될 포인트
+            point = (userDTO.getUser_point() + point) - usePoint;          // (현재 포인트 + 적립될 포인트) - 사용한 포인트
             userDTO.setUser_point(point);
-
             userService.updateUserPoint(userDTO);
+
+            // 주문 완료 후 장바구니 목록 삭제
+            int deleteCartAll = cartService.deleteCartAll(userDTO.getUser_idx());
         }
 
 
@@ -83,16 +88,17 @@ public class OrderInfoController {
         int orderIdx = Integer.parseInt(orderId);
 
         Map<String, Object> receiverUserInfo = orderService.getOrderUserInfo(orderIdx);
-        List<Map<String, Object>> orderProduectInfo = orderService.getOrderProductInfo(orderIdx);
+        List<Map<String, Object>> orderProductInfo = orderService.getOrderProductInfo(orderIdx);
+        OrderInfoDTO orderInfoDTO = new OrderInfoDTO();
 
         int total = 0;
-        for(Map<String, Object> map : orderProduectInfo) {
+        for(Map<String, Object> map : orderProductInfo) {
             total += (int) map.get("product_price") * (int) map.get("cart_quantity") ;
         }
         int point = (int)Math.round(total * 0.05);
 
         model.addAttribute("receiverUserInfo", receiverUserInfo);
-        model.addAttribute("orderProduectInfo", orderProduectInfo);
+        model.addAttribute("orderProduectInfo", orderProductInfo);
         model.addAttribute("point", point);
 
         return "orderInfo";
