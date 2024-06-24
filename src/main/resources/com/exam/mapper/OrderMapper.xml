@@ -108,7 +108,7 @@
     </insert>
 
     <select id="getMaxOrderIdx" resultType="Integer">
-        select ifnull(max(order_idx), 0)+1 from orderinfo
+        select ifnull(max(order_idx), 10000)+1 from orderinfo
     </select>
 
 </mapper>

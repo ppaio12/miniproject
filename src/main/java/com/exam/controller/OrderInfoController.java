@@ -58,7 +58,7 @@ public class OrderInfoController {
             ProductDTO product = productService.productDetail(product_idx.get(i-1));
             total += product.getProduct_price() * cart_quantity.get(i-1);
             insertDto.add(pushDto);
-            System.out.println(pushDto.toString());
+//            System.out.println(pushDto.toString());
         }
 
         // 총 금액(적립금 사용 후)

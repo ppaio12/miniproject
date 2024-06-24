@@ -36,7 +36,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public Map<String, Object> getOrderUserInfoMany(int userIdx) {
-        Map<String, Object> resultMap = orderMapper.findOrderUserInfoOne(userIdx);
+        Map<String, Object> resultMap = orderMapper.findOrderUserInfoMany(userIdx);
 
         return resultMap;
     }
@@ -50,7 +50,7 @@ public class OrderServiceImpl implements OrderService{
 
     @Override
     public List<Map<String, Object>> getOrderProductInfoMany(int userIdx) {
-        List<Map<String, Object>> resultList = orderMapper.findOrderProductByCart(userIdx);
+        List<Map<String, Object>> resultList = orderMapper.findOrderProductByCartMany(userIdx);
 
         return resultList;
     }

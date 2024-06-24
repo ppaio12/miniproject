@@ -19,6 +19,7 @@ ${orderProduct}
             <table class="table">
                 <thead>
                 <tr>
+                    <th class="scope">주문번호</th>
                     <th class="scope">주문일자</th>
                     <th class="scope">상품이미지</th>
                     <th class="scope">상품정보</th>
@@ -31,6 +32,9 @@ ${orderProduct}
                 <c:forEach var="dto" items="${orderProductInfoMany}" varStatus="status">
                     <c:set var="sum" value="${sum + (dto.product_price * dto.cart_quantity)}" />
                     <tr>
+                        <td>
+                            ${dto.order_idx}
+                        </td>
                         <td>
                                 ${receiverUserInfoMany.order_date}
                         </td>
